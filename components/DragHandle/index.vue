@@ -1,6 +1,6 @@
 <template>
   <Icon
-    class="drag-handle cursor-move"
+    class="drag-handle cursor-move text-white"
     name="ph:dots-six-vertical"
     weight="bold"
   />
