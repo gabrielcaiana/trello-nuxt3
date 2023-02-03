@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Column } from '~~/types';
+import draggable from 'vuedraggable';
 import { nanoid } from 'nanoid';
 const columns = ref<Column[]>([
   {
@@ -48,17 +49,22 @@ const columns = ref<Column[]>([
 </script>
 
 <template>
-  <div class="flex gap-4 overflow-x-auto items-start">
-    <div
-      v-for="{ id, title, tasks } in columns"
-      :key="id"
-      class="bg-zinc-800 p-5 rounded min-w-[250px]"
+  <div>
+    <draggable
+      v-model="columns"
+      group="columns"
+      item-key="id"
+      class="flex gap-4 overflow-x-auto items-start"
     >
-      <header class="text-white font-bold text-xl">{{ title }}</header>
-      <Task v-for="task in tasks" :key="id" :task="task" />
-      <footer>
-        <button class="text-zinc-500">+ Add a Card</button>
-      </footer>
-    </div>
+      <template #item="{ element: column }: { element: Column }">
+        <div class="bg-zinc-800 p-5 rounded min-w-[250px]">
+          <header class="text-white font-bold">{{ column.title }}</header>
+          <Task v-for="task in column.tasks" :key="task.id" :task="task" />
+          <footer>
+            <button class="text-zinc-500">+ Add a Card</button>
+          </footer>
+        </div>
+      </template>
+    </draggable>
   </div>
 </template>
