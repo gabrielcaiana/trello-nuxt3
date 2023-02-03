@@ -55,10 +55,15 @@ const columns = ref<Column[]>([
       group="columns"
       item-key="id"
       class="flex gap-4 overflow-x-auto items-start"
+      :animation="150"
+      handle=".drag-handle"
     >
       <template #item="{ element: column }: { element: Column }">
         <div class="bg-zinc-800 p-5 rounded min-w-[250px]">
-          <header class="text-white font-bold">{{ column.title }}</header>
+          <header class="text-white font-bold flex items-center gap-1">
+            <DragHandle />
+            {{ column.title }}
+          </header>
           <Task v-for="task in column.tasks" :key="task.id" :task="task" />
           <footer>
             <button class="text-zinc-500">+ Add a Card</button>
