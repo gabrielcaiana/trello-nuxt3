@@ -74,7 +74,9 @@ const alt = useKeyModifier('Alt');
             handle=".drag-handle"
           >
             <template #item="{ element: task }: { element: Task }">
-              <Task :task="task" />
+              <div>
+                <Task class="task" :task="task" />
+              </div>
             </template>
           </draggable>
           <footer>
