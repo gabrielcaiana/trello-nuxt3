@@ -5,13 +5,19 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "test:unit": "vitest",
+    "test:ui": "vitest --ui",
+    "coverage": "vitest run --coverage"
   },
   "devDependencies": {
-    "nuxt": "^3.1.2"
+    "jsdom": "^21.1.0",
+    "nuxt": "^3.1.2",
+    "vitest": "^0.28.4"
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.3.1",
+    "@vue/test-utils": "^2.2.10",
     "@vueuse/nuxt": "^9.12.0",
     "nanoid": "^4.0.0",
     "nuxt-icon": "^0.2.10",
