@@ -1,4 +1,4 @@
-type ID = string;
+export type ID = string;
 
 export interface Column {
   id: ID;

@@ -48,6 +48,16 @@ const columns = ref<Column[]>([
 ]);
 
 const alt = useKeyModifier('Alt');
+
+const deleteTask = (id: string): void => {
+  columns.value.forEach((column: Column) => {
+    const taskIndex = column.tasks.findIndex((task: Task) => task.id === id);
+    if (taskIndex !== -1) {
+      column.tasks.splice(taskIndex, 1);
+      return;
+    }
+  });
+};
 </script>
 
 <template>
@@ -61,7 +71,7 @@ const alt = useKeyModifier('Alt');
       handle=".drag-handle"
     >
       <template #item="{ element: column }: { element: Column }">
-        <div class="bg-zinc-800 p-5 rounded min-w-[250px]">
+        <div class="bg-zinc-800 p-5 rounded min-w-[280px]">
           <header class="text-white font-bold flex items-center gap-1">
             <DragHandle />
             {{ column.title }}
@@ -75,7 +85,7 @@ const alt = useKeyModifier('Alt');
           >
             <template #item="{ element: task }: { element: Task }">
               <div>
-                <Task class="task" :task="task" />
+                <Task class="task" :task="task" @delete="deleteTask($event)" />
               </div>
             </template>
           </draggable>
