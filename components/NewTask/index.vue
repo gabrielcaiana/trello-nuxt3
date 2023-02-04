@@ -2,6 +2,8 @@
 import type { Task } from '~~/types';
 import { nanoid } from 'nanoid';
 
+import { ref } from 'vue';
+
 const emit = defineEmits<{
   (e: 'add', payload: Task): void;
 }>();
