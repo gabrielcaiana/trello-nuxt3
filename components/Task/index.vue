@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import type { Task, ID } from '~~/types';
+import { ref } from 'vue';
+import { onKeyStroke } from '@vueuse/core';
 
 const props = defineProps<{
   task: Task;
@@ -16,7 +18,7 @@ onKeyStroke('Backspace', (_e) => {
 </script>
 
 <template>
-  <div :title="task.createdAt.toLocaleDateString()">
+  <div :title="new Date(task.createdAt).toLocaleDateString()">
     <div
       @focus="focused = true"
       @blur="focused = false"

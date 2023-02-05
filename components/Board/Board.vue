@@ -2,50 +2,7 @@
 import type { Column, Task } from '~~/types';
 import draggable from 'vuedraggable';
 import { nanoid } from 'nanoid';
-const columns = ref<Column[]>([
-  {
-    id: nanoid(),
-    title: 'Backlog',
-    tasks: [
-      {
-        id: nanoid(),
-        title: 'Create my kanban',
-        createdAt: new Date(),
-      },
-      {
-        id: nanoid(),
-        title: 'develop authentication feature',
-        createdAt: new Date(),
-      },
-
-      {
-        id: nanoid(),
-        title: 'develop backend with prisma',
-        createdAt: new Date(),
-      },
-    ],
-  },
-  {
-    id: nanoid(),
-    title: 'Selected for Dev',
-    tasks: [],
-  },
-  {
-    id: nanoid(),
-    title: 'In Progress',
-    tasks: [],
-  },
-  {
-    id: nanoid(),
-    title: 'QA',
-    tasks: [],
-  },
-  {
-    id: nanoid(),
-    title: 'Complete',
-    tasks: [],
-  },
-]);
+const columns = useLocalStorage<Column[]>('trelloBoard', []);
 
 const alt = useKeyModifier('Alt');
 
