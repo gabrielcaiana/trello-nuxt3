@@ -5,18 +5,5 @@ export default defineNuxtConfig({
       title: 'Trello - Nuxt 3',
     },
   },
-  modules: [
-    '@nuxtjs/tailwindcss',
-    '@vueuse/nuxt',
-    'nuxt-icon',
-    '@sidebase/nuxt-auth',
-  ],
-  auth: {
-    defaultProvider: 'Github',
-    enableGlobalAppMiddleware: true,
-  },
-  runtimeConfig: {
-    clientId: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET,
-  },
+  modules: ['@nuxtjs/tailwindcss', '@vueuse/nuxt', 'nuxt-icon'],
 });
