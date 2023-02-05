@@ -8,9 +8,13 @@
     "postinstall": "nuxt prepare",
     "test:unit": "vitest",
     "test:ui": "vitest --ui",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "prepare": "husky install"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
+    "husky": "^8.0.3",
     "jsdom": "^21.1.0",
     "nuxt": "^3.1.2",
     "vitest": "^0.28.4"
