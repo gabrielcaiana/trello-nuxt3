@@ -11,3 +11,9 @@ export interface Task {
   title: string;
   createdAt: Date;
 }
+
+export interface User {
+  name: string;
+  email: string;
+  image: string;
+}
