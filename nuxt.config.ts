@@ -12,7 +12,6 @@ export default defineNuxtConfig({
     '@sidebase/nuxt-auth',
   ],
   auth: {
-    origin: process.env.ORIGIN,
     defaultProvider: 'Github',
     enableGlobalAppMiddleware: true,
   },
