@@ -49,6 +49,23 @@ const columns = ref<Column[]>([
 
 const alt = useKeyModifier('Alt');
 
+const createColumn = () => {
+  const column: Column = {
+    id: nanoid(),
+    title: '',
+    tasks: [],
+  };
+
+  columns.value.push(column);
+  nextTick(() => {
+    (
+      document.querySelector(
+        '.column:last-of-type .title-input'
+      ) as HTMLInputElement
+    ).focus();
+  });
+};
+
 const deleteTask = (id: string): void => {
   columns.value.forEach((column: Column) => {
     const taskIndex = column.tasks.findIndex((task: Task) => task.id === id);
@@ -58,23 +75,35 @@ const deleteTask = (id: string): void => {
     }
   });
 };
+
+const deleteColumn = (id: string): void => {
+  columns.value = columns.value.filter(
+    (c: Column) => c.title !== '' || c.id !== id
+  );
+};
 </script>
 
 <template>
-  <div>
+  <div class="flex items-start gap-4 overflow-x-auto">
     <draggable
       v-model="columns"
       group="columns"
       item-key="id"
-      class="flex gap-4 overflow-x-auto items-start"
+      class="flex gap-4 items-start"
       :animation="150"
       handle=".drag-handle"
     >
       <template #item="{ element: column }: { element: Column }">
-        <div class="bg-zinc-800 p-5 rounded min-w-[280px]">
+        <div class="column bg-zinc-800 p-5 rounded min-w-[280px]">
           <header class="text-white font-bold flex items-center gap-1">
             <DragHandle />
-            {{ column.title }}
+            <input
+              class="title-input bg-transparent focus:shadow focus:border focus:border-zinc-200 rounded w-4/5"
+              @keyup.enter="($event.target as HTMLInputElement).blur()"
+              @keydown.backspace="deleteColumn(column.id)"
+              type="text"
+              v-model="column.title"
+            />
           </header>
           <draggable
             v-model="column.tasks"
@@ -95,5 +124,11 @@ const deleteTask = (id: string): void => {
         </div>
       </template>
     </draggable>
+    <button
+      @click="createColumn"
+      class="focus:bg-zinc-700 hover:bg-zinc-600 focus:shadow resize-none rounded bg-zinc-700 transition-colors text-zinc-500 px-2 text-left cursor-pointer whitespace-nowrap"
+    >
+      + Add Another Column
+    </button>
   </div>
 </template>
