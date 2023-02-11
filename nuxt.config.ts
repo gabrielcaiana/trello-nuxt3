@@ -5,5 +5,8 @@ export default defineNuxtConfig({
       title: 'Trello - Nuxt 3',
     },
   },
+  typescript: {
+    strict: true,
+  },
   modules: ['@nuxtjs/tailwindcss', '@vueuse/nuxt', 'nuxt-icon'],
 });
