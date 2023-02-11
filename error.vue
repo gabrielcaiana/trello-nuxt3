@@ -1,10 +1,19 @@
-<script setup>
-const props = defineProps({
-  error: Object,
-});
+<script setup lang="ts">
+interface HandleError {
+  url: string;
+  statusCode: string;
+  statusMessage: string;
+  message: string;
+  stack: string;
+}
+
+const props = defineProps<{
+  error: HandleError;
+}>();
+
 const message = computed(() => String(props.error?.message || ''));
 const is404 = computed(
-  () => props.error?.statusCode == 404 || message.value?.includes('404')
+  () => props.error?.statusCode === '404' || message.value?.includes('404')
 );
 const isDev = process.dev;
 const handleError = () => clearError({ redirect: '/' });
