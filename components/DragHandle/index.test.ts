@@ -8,5 +8,6 @@ describe('Icon', () => {
     expect(wrapper.classes()).toEqual(
       expect.arrayContaining(['drag-handle', 'cursor-move', 'text-white'])
     );
+    expect(wrapper).toMatchSnapshot();
   });
 });

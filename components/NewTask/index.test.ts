@@ -21,6 +21,7 @@ describe('TheComponent', () => {
         createdAt: expect.any(Date),
       } as Task,
     ]);
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('clears the title value after task is added', async () => {

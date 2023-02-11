@@ -20,6 +20,7 @@ describe('Task', () => {
 
   it('renders the task title', () => {
     expect(wrapper.find('[datatest-id="task-title"]').text()).toBe(task.title);
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('renders the created at date in the title', () => {
