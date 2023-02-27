@@ -21,11 +21,9 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
   ],
   pwa: {
-    registerType: 'autoUpdate',
     manifest: {
-      registerType: 'autoUpdate',
       name: 'Trello Clone',
-      short_name: 'NuxtVitePWA',
+      short_name: 'trello_clone',
       theme_color: '#000000',
       icons: [
         {
