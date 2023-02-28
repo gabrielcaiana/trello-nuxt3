@@ -41,7 +41,9 @@ const deleteColumn = (id: string): void => {
 </script>
 
 <template>
-  <div class="flex items-start gap-4 overflow-x-auto h-full">
+  <div
+    class="flex items-start gap-4 overflow-x-auto h-full scrollbar scrollbar-thumb-transparent scrollbar-track-transparent"
+  >
     <draggable
       v-model="columns"
       group="columns"
