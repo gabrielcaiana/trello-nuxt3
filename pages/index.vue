@@ -1,5 +1,9 @@
+<script setup lang="ts">
+useHead({
+  title: 'Home',
+});
+</script>
+
 <template>
-  <div>
-    <Board />
-  </div>
+  <Board />
 </template>

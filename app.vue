@@ -1,19 +1,29 @@
 <script setup lang="ts">
-const user = ref(false);
+const { useStateUser, initAuth, useStateLoading } = useAuth();
+const user = useStateUser();
+const isAuthLoading = useStateLoading();
+
+onBeforeMount(() => {
+  initAuth();
+});
 </script>
 
 <template>
   <div class="min-h-screen bg-zinc-900">
-    <div class="container mx-auto py-10">
-      <AuthPage v-if="!user" />
+    <UIToast />
 
-      <div v-else>
+    <div class="container mx-auto py-10">
+      <UILoading v-if="isAuthLoading" />
+
+      <div v-else-if="user">
         <VitePwaManifest />
         <NuxtLoadingIndicator />
         <NuxtLayout>
           <NuxtPage />
         </NuxtLayout>
       </div>
+
+      <AuthPage v-else />
     </div>
   </div>
 </template>

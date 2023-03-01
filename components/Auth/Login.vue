@@ -3,14 +3,27 @@ useHead({
   title: 'Login',
 });
 const { $bus } = useNuxtApp();
+const { signIn } = useAuth();
+
+const router = useRouter();
 
 const data = reactive({
   email: '',
   password: '',
+  loading: false,
 });
 
-const handleLogin = () => {
-  alert(JSON.stringify(data));
+const handleLogin = async () => {
+  data.loading = true;
+  try {
+    await signIn({ email: data.email, password: data.password });
+    router.push('/');
+  } catch (error) {
+    console.error(error);
+    $bus.$emit('toast', { message: error, type: 'error' });
+  } finally {
+    data.loading = false;
+  }
 };
 
 const handleRegisterPage = () => {

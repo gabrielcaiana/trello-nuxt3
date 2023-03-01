@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { describe, it, expect } from 'vitest';
 import TaskItem from './index.vue';
-import type { Task } from '~~/types';
+import type { Task } from '~~/types/board';
 import { nanoid } from 'nanoid';
 import DragHandle from '../DragHandle/index.vue';
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Column, Task } from '~~/types';
+import type { Column, Task } from '~/types/board';
 import draggable from 'vuedraggable';
 import { nanoid } from 'nanoid';
 const columns = useLocalStorage<Column[]>('trelloBoard', []);

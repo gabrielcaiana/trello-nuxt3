@@ -1,19 +1,31 @@
 <script setup lang="ts">
+import { User } from '~/types/user';
+
 useHead({
   title: 'Login',
 });
 const { $bus } = useNuxtApp();
+const { signUp } = useAuth();
 
-const data = reactive({
+const data = reactive<User>({
   name: '',
   email: '',
   password: '',
-  imageProfileUrl: '',
+  profileImage: '',
   repeatPassword: '',
 });
 
-const handleRegister = () => {
-  alert(JSON.stringify(data));
+const handleRegister = async () => {
+  try {
+    await signUp(data);
+    handleLoginPage();
+    $bus.$emit('toast', {
+      message: 'Usuário criado com sucesso!',
+      type: 'success',
+    });
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 const handleLoginPage = () => {
@@ -62,7 +74,7 @@ const handleLoginPage = () => {
           id="imageProfileUrl"
           name="imageProfileUrl"
           rules="required|url"
-          v-model="data.imageProfileUrl"
+          v-model="data.profileImage"
         />
         <VErrorMessage name="imageProfileUrl" class="text-red-500" />
       </div>
@@ -96,7 +108,7 @@ const handleLoginPage = () => {
       </div>
 
       <div class="flex flex-col gap-3 mt-4">
-        <UIButton>Entrar</UIButton>
+        <UIButton>Registrar</UIButton>
         <UIButton type="button" color="secondary" @click="handleLoginPage"
           >Ir para página de login</UIButton
         >

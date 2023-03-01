@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils';
 import { expect, it, describe } from 'vitest';
-import type { Task } from '~~/types';
+import type { Task } from '~~/types/board';
 import NewTask from './index.vue';
 
 describe('TheComponent', () => {
