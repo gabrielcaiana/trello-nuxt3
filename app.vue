@@ -13,7 +13,12 @@ onBeforeMount(() => {
     <UIToast />
 
     <div class="container mx-auto py-10">
-      <UILoading v-if="isAuthLoading" />
+      <div
+        v-if="isAuthLoading"
+        class="h-screen flex items-center justify-center"
+      >
+        <UILoading />
+      </div>
 
       <div v-else-if="user">
         <VitePwaManifest />

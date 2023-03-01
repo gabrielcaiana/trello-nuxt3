@@ -63,8 +63,16 @@ const handleRegisterPage = () => {
         <VErrorMessage name="password" class="text-red-500" />
       </div>
 
-      <div class="flex flex-col gap-3 mt-4">
+      <div
+        class="flex items-center justify-center w-full mt-4"
+        v-if="data.loading"
+      >
+        <UILoading />
+      </div>
+
+      <div v-else class="flex flex-col gap-3 mt-4">
         <UIButton>Entrar</UIButton>
+
         <UIButton type="button" color="secondary" @click="handleRegisterPage"
           >Cadastre-se</UIButton
         >
