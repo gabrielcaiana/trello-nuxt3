@@ -1,10 +1,20 @@
+<script setup lang="ts">
+const user = ref(false);
+</script>
+
 <template>
-  <div>
-    <VitePwaManifest />
-    <NuxtLoadingIndicator />
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+  <div class="min-h-screen bg-zinc-900">
+    <div class="container mx-auto py-10">
+      <AuthPage v-if="!user" />
+
+      <div v-else>
+        <VitePwaManifest />
+        <NuxtLoadingIndicator />
+        <NuxtLayout>
+          <NuxtPage />
+        </NuxtLayout>
+      </div>
+    </div>
   </div>
 </template>
 <style>
