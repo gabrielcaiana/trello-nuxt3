@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Task } from '~~/types';
+import type { Task } from '~~/types/board';
 import { nanoid } from 'nanoid';
 
 import { ref } from 'vue';

@@ -14,18 +14,30 @@
   "devDependencies": {
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
+    "@types/bcrypt": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.1",
     "@vite-pwa/nuxt": "^0.0.6",
     "husky": "^8.0.3",
     "jsdom": "^21.1.0",
     "nuxt": "^3.1.2",
+    "nuxt-icon": "^0.3.2",
+    "prisma": "^4.3.1",
+    "tailwind-scrollbar": "^2.1.0",
     "vitest": "^0.28.4"
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.3.1",
+    "@prisma/client": "^4.3.1",
+    "@vee-validate/rules": "^4.7.4",
     "@vue/test-utils": "^2.2.10",
     "@vueuse/nuxt": "^9.12.0",
+    "bcrypt": "^5.1.0",
+    "jsonwebtoken": "^9.0.0",
+    "jwt-decode": "^3.1.2",
+    "mitt": "^3.0.0",
     "nanoid": "^4.0.0",
-    "nuxt-icon": "^0.2.10",
+    "url-pattern": "^1.0.3",
+    "vee-validate": "^4.7.4",
     "vuedraggable": "^4.1.0"
   }
 }

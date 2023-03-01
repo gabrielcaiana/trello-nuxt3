@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Task, ID } from '~~/types';
+import type { Task, ID } from '~~/types/board';
 import { ref } from 'vue';
 import { onKeyStroke } from '@vueuse/core';
 
