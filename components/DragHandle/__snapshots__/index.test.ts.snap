@@ -354,7 +354,7 @@ VueWrapper {
           "suspense": null,
           "suspenseId": 0,
           "type": {
-            "__file": "/Users/gabrielcaiana/www/Frontend/vue3/vue-trello-drag-and-drop/components/DragHandle/index.vue",
+            "__file": "/Users/gabrielcaiana/www/Frontend/nuxt3/trello-clone/components/DragHandle/index.vue",
             "components": {},
             "render": [Function],
           },
@@ -396,7 +396,7 @@ VueWrapper {
         "targetAnchor": null,
         "transition": null,
         "type": {
-          "__file": "/Users/gabrielcaiana/www/Frontend/vue3/vue-trello-drag-and-drop/components/DragHandle/index.vue",
+          "__file": "/Users/gabrielcaiana/www/Frontend/nuxt3/trello-clone/components/DragHandle/index.vue",
           "components": {},
           "render": [Function],
         },

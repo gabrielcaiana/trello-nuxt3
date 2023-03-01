@@ -12,19 +12,21 @@ VueWrapper {
       data-v-app=""
     >
       <div
-        title="2/10/2023"
+        title="3/1/2023"
       >
         <div
           class="p-3 mt-4 mb-2 bg-zinc-500 rounded shadow-sm max-w-[280px] flex gap-2 focus:shadow focus:border focus:border-zinc-200 cursor-pointer"
           tabindex="0"
         >
-          <icon
-            class="drag-handle cursor-move text-white mt-1"
-            name="ph:dots-six-vertical"
-            weight="bold"
-          />
+          <div>
+            <icon
+              class="drag-handle cursor-move text-white mt-1"
+              name="ph:dots-six-vertical"
+              weight="bold"
+            />
+          </div>
           <span
-            class="text-white"
+            class="text-white break-all"
             datatest-id="task-title"
           >
             Test task
@@ -262,14 +264,14 @@ VueWrapper {
           "c": null,
           "components": {
             "DragHandle": {
-              "__file": "/Users/gabrielcaiana/www/Frontend/vue3/vue-trello-drag-and-drop/components/DragHandle/index.vue",
+              "__file": "/Users/gabrielcaiana/www/Frontend/nuxt3/trello-clone/components/DragHandle/index.vue",
               "render": [Function],
             },
           },
           "ctx": {
             "task": {
-              "createdAt": 2023-02-11T02:16:38.724Z,
-              "id": "T69ql3P7knPu0ypIYIgl6",
+              "createdAt": 2023-03-01T03:50:23.388Z,
+              "id": "5I2vzoYP1kaAoagn8Pudh",
               "title": "Test task",
             },
           },
@@ -286,8 +288,8 @@ VueWrapper {
             },
             "props": {
               "task": {
-                "createdAt": 2023-02-11T02:16:38.724Z,
-                "id": "T69ql3P7knPu0ypIYIgl6",
+                "createdAt": 2023-03-01T03:50:23.388Z,
+                "id": "5I2vzoYP1kaAoagn8Pudh",
                 "title": "Test task",
               },
             },
@@ -330,8 +332,8 @@ VueWrapper {
           "parent": [Circular],
           "props": {
             "task": {
-              "createdAt": 2023-02-11T02:16:38.724Z,
-              "id": "T69ql3P7knPu0ypIYIgl6",
+              "createdAt": 2023-03-01T03:50:23.388Z,
+              "id": "5I2vzoYP1kaAoagn8Pudh",
               "title": "Test task",
             },
           },
@@ -350,8 +352,8 @@ VueWrapper {
           "provides": {},
           "proxy": {
             "task": {
-              "createdAt": 2023-02-11T02:16:38.724Z,
-              "id": "T69ql3P7knPu0ypIYIgl6",
+              "createdAt": 2023-03-01T03:50:23.388Z,
+              "id": "5I2vzoYP1kaAoagn8Pudh",
               "title": "Test task",
             },
           },
@@ -414,8 +416,8 @@ VueWrapper {
             "focused": false,
             "props": {
               "task": {
-                "createdAt": 2023-02-11T02:16:38.724Z,
-                "id": "T69ql3P7knPu0ypIYIgl6",
+                "createdAt": 2023-03-01T03:50:23.388Z,
+                "id": "5I2vzoYP1kaAoagn8Pudh",
                 "title": "Test task",
               },
             },
@@ -439,99 +441,64 @@ VueWrapper {
                     "__v_skip": true,
                     "anchor": null,
                     "appContext": null,
-                    "children": null,
-                    "component": {
-                      "a": null,
-                      "accessCache": {},
-                      "appContext": {
-                        "app": [Circular],
-                        "components": {
-                          "transition": {
-                            "name": "transition",
+                    "children": [
+                      {
+                        "__v_isVNode": true,
+                        "__v_skip": true,
+                        "anchor": null,
+                        "appContext": null,
+                        "children": null,
+                        "component": {
+                          "a": null,
+                          "accessCache": {},
+                          "appContext": {
+                            "app": [Circular],
+                            "components": {
+                              "transition": {
+                                "name": "transition",
+                              },
+                              "transition-group": {
+                                "name": "transition-group",
+                              },
+                            },
+                            "config": {
+                              "compilerOptions": {},
+                              "errorHandler": undefined,
+                              "globalProperties": {},
+                              "isNativeTag": [Function],
+                              "optionMergeStrategies": {},
+                              "performance": false,
+                              "warnHandler": undefined,
+                            },
+                            "directives": {},
+                            "emitsCache": WeakMap {},
+                            "mixins": [
+                              {
+                                "beforeCreate": [Function],
+                              },
+                            ],
+                            "optionsCache": WeakMap {},
+                            "propsCache": WeakMap {},
+                            "provides": {},
+                            "reload": [Function],
                           },
-                          "transition-group": {
-                            "name": "transition-group",
+                          "asyncDep": null,
+                          "asyncResolved": false,
+                          "attrs": {
+                            "class": "mt-1",
                           },
-                        },
-                        "config": {
-                          "compilerOptions": {},
-                          "errorHandler": undefined,
-                          "globalProperties": {},
-                          "isNativeTag": [Function],
-                          "optionMergeStrategies": {},
-                          "performance": false,
-                          "warnHandler": undefined,
-                        },
-                        "directives": {},
-                        "emitsCache": WeakMap {},
-                        "mixins": [
-                          {
-                            "beforeCreate": [Function],
-                          },
-                        ],
-                        "optionsCache": WeakMap {},
-                        "propsCache": WeakMap {},
-                        "provides": {},
-                        "reload": [Function],
-                      },
-                      "asyncDep": null,
-                      "asyncResolved": false,
-                      "attrs": {
-                        "class": "mt-1",
-                      },
-                      "bc": null,
-                      "bm": null,
-                      "bu": null,
-                      "bum": null,
-                      "c": null,
-                      "components": null,
-                      "ctx": {},
-                      "da": null,
-                      "data": {},
-                      "directives": null,
-                      "ec": null,
-                      "effect": ReactiveEffect {
-                        "active": true,
-                        "allowRecurse": true,
-                        "deps": [],
-                        "fn": [Function],
-                        "onTrack": undefined,
-                        "onTrigger": undefined,
-                        "parent": undefined,
-                        "scheduler": [Function],
-                      },
-                      "emit": [Function],
-                      "emitsOptions": null,
-                      "emitted": null,
-                      "exposeProxy": null,
-                      "exposed": null,
-                      "inheritAttrs": undefined,
-                      "isDeactivated": false,
-                      "isMounted": true,
-                      "isUnmounted": false,
-                      "m": null,
-                      "next": null,
-                      "parent": [Circular],
-                      "props": {},
-                      "propsDefaults": {},
-                      "propsOptions": [
-                        {},
-                        [],
-                      ],
-                      "provides": {},
-                      "proxy": {},
-                      "refs": {},
-                      "render": [Function],
-                      "renderCache": [],
-                      "root": [Circular],
-                      "rtc": null,
-                      "rtg": null,
-                      "scope": EffectScope {
-                        "_active": true,
-                        "cleanups": [],
-                        "detached": true,
-                        "effects": [
-                          ReactiveEffect {
+                          "bc": null,
+                          "bm": null,
+                          "bu": null,
+                          "bum": null,
+                          "c": null,
+                          "components": null,
+                          "ctx": {},
+                          "da": null,
+                          "data": {},
+                          "directives": null,
+                          "ec": null,
+                          "effect": ReactiveEffect {
                             "active": true,
                             "allowRecurse": true,
                             "deps": [],
@@ -541,24 +508,107 @@ VueWrapper {
                             "parent": undefined,
                             "scheduler": [Function],
                           },
-                        ],
-                        "parent": undefined,
-                      },
-                      "setupContext": null,
-                      "setupState": {},
-                      "slots": {},
-                      "sp": null,
-                      "subTree": {
-                        "__v_isVNode": true,
-                        "__v_skip": true,
-                        "anchor": null,
-                        "appContext": null,
-                        "ce": undefined,
-                        "children": null,
-                        "component": null,
+                          "emit": [Function],
+                          "emitsOptions": null,
+                          "emitted": null,
+                          "exposeProxy": null,
+                          "exposed": null,
+                          "inheritAttrs": undefined,
+                          "isDeactivated": false,
+                          "isMounted": true,
+                          "isUnmounted": false,
+                          "m": null,
+                          "next": null,
+                          "parent": [Circular],
+                          "props": {},
+                          "propsDefaults": {},
+                          "propsOptions": [
+                            {},
+                            [],
+                          ],
+                          "provides": {},
+                          "proxy": {},
+                          "refs": {},
+                          "render": [Function],
+                          "renderCache": [],
+                          "root": [Circular],
+                          "rtc": null,
+                          "rtg": null,
+                          "scope": EffectScope {
+                            "_active": true,
+                            "cleanups": [],
+                            "detached": true,
+                            "effects": [
+                              ReactiveEffect {
+                                "active": true,
+                                "allowRecurse": true,
+                                "deps": [],
+                                "fn": [Function],
+                                "onTrack": undefined,
+                                "onTrigger": undefined,
+                                "parent": undefined,
+                                "scheduler": [Function],
+                              },
+                            ],
+                            "parent": undefined,
+                          },
+                          "setupContext": null,
+                          "setupState": {},
+                          "slots": {},
+                          "sp": null,
+                          "subTree": {
+                            "__v_isVNode": true,
+                            "__v_skip": true,
+                            "anchor": null,
+                            "appContext": null,
+                            "ce": undefined,
+                            "children": null,
+                            "component": null,
+                            "ctx": [Circular],
+                            "dirs": null,
+                            "dynamicChildren": [],
+                            "dynamicProps": null,
+                            "el": <icon
+                              class="drag-handle cursor-move text-white mt-1"
+                              name="ph:dots-six-vertical"
+                              weight="bold"
+                            />,
+                            "key": null,
+                            "patchFlag": 16,
+                            "props": {
+                              "class": "drag-handle cursor-move text-white mt-1",
+                              "name": "ph:dots-six-vertical",
+                              "weight": "bold",
+                            },
+                            "ref": null,
+                            "scopeId": null,
+                            "shapeFlag": 1,
+                            "slotScopeIds": null,
+                            "ssContent": null,
+                            "ssFallback": null,
+                            "staticCount": 0,
+                            "suspense": null,
+                            "target": null,
+                            "targetAnchor": null,
+                            "transition": null,
+                            "type": "Icon",
+                          },
+                          "suspense": null,
+                          "suspenseId": 0,
+                          "type": {
+                            "__file": "/Users/gabrielcaiana/www/Frontend/nuxt3/trello-clone/components/DragHandle/index.vue",
+                            "render": [Function],
+                          },
+                          "u": null,
+                          "uid": 2,
+                          "um": null,
+                          "update": [Function],
+                          "vnode": [Circular],
+                          "withProxy": null,
+                        },
                         "ctx": [Circular],
                         "dirs": null,
-                        "dynamicChildren": [],
+                        "dynamicChildren": null,
                         "dynamicProps": null,
                         "el": <icon
                           class="drag-handle cursor-move text-white mt-1"
@@ -566,15 +616,13 @@ VueWrapper {
                           weight="bold"
                         />,
                         "key": null,
-                        "patchFlag": 16,
+                        "patchFlag": 0,
                         "props": {
-                          "class": "drag-handle cursor-move text-white mt-1",
-                          "name": "ph:dots-six-vertical",
-                          "weight": "bold",
+                          "class": "mt-1",
                         },
                         "ref": null,
                         "scopeId": null,
-                        "shapeFlag": 1,
+                        "shapeFlag": 4,
                         "slotScopeIds": null,
                         "ssContent": null,
                         "ssFallback": null,
@@ -583,38 +631,30 @@ VueWrapper {
                         "target": null,
                         "targetAnchor": null,
                         "transition": null,
-                        "type": "Icon",
+                        "type": {
+                          "__file": "/Users/gabrielcaiana/www/Frontend/nuxt3/trello-clone/components/DragHandle/index.vue",
+                          "render": [Function],
+                        },
                       },
-                      "suspense": null,
-                      "suspenseId": 0,
-                      "type": {
-                        "__file": "/Users/gabrielcaiana/www/Frontend/vue3/vue-trello-drag-and-drop/components/DragHandle/index.vue",
-                        "render": [Function],
-                      },
-                      "u": null,
-                      "uid": 2,
-                      "um": null,
-                      "update": [Function],
-                      "vnode": [Circular],
-                      "withProxy": null,
-                    },
+                    ],
+                    "component": null,
                     "ctx": [Circular],
                     "dirs": null,
                     "dynamicChildren": null,
                     "dynamicProps": null,
-                    "el": <icon
-                      class="drag-handle cursor-move text-white mt-1"
-                      name="ph:dots-six-vertical"
-                      weight="bold"
-                    />,
+                    "el": <div>
+                      <icon
+                        class="drag-handle cursor-move text-white mt-1"
+                        name="ph:dots-six-vertical"
+                        weight="bold"
+                      />
+                    </div>,
                     "key": null,
                     "patchFlag": 0,
-                    "props": {
-                      "class": "mt-1",
-                    },
+                    "props": null,
                     "ref": null,
                     "scopeId": null,
-                    "shapeFlag": 4,
+                    "shapeFlag": 17,
                     "slotScopeIds": null,
                     "ssContent": null,
                     "ssFallback": null,
@@ -623,10 +663,7 @@ VueWrapper {
                     "target": null,
                     "targetAnchor": null,
                     "transition": null,
-                    "type": {
-                      "__file": "/Users/gabrielcaiana/www/Frontend/vue3/vue-trello-drag-and-drop/components/DragHandle/index.vue",
-                      "render": [Function],
-                    },
+                    "type": "div",
                   },
                   {
                     "__v_isVNode": true,
@@ -640,7 +677,7 @@ VueWrapper {
                     "dynamicChildren": null,
                     "dynamicProps": null,
                     "el": <span
-                      class="text-white"
+                      class="text-white break-all"
                       datatest-id="task-title"
                     >
                       Test task
@@ -648,7 +685,7 @@ VueWrapper {
                     "key": null,
                     "patchFlag": 1,
                     "props": {
-                      "class": "text-white",
+                      "class": "text-white break-all",
                       "datatest-id": "task-title",
                     },
                     "ref": null,
@@ -674,13 +711,15 @@ VueWrapper {
                   class="p-3 mt-4 mb-2 bg-zinc-500 rounded shadow-sm max-w-[280px] flex gap-2 focus:shadow focus:border focus:border-zinc-200 cursor-pointer"
                   tabindex="0"
                 >
-                  <icon
-                    class="drag-handle cursor-move text-white mt-1"
-                    name="ph:dots-six-vertical"
-                    weight="bold"
-                  />
+                  <div>
+                    <icon
+                      class="drag-handle cursor-move text-white mt-1"
+                      name="ph:dots-six-vertical"
+                      weight="bold"
+                    />
+                  </div>
                   <span
-                    class="text-white"
+                    class="text-white break-all"
                     datatest-id="task-title"
                   >
                     Test task
@@ -873,7 +912,7 @@ VueWrapper {
                   "suspense": null,
                   "suspenseId": 0,
                   "type": {
-                    "__file": "/Users/gabrielcaiana/www/Frontend/vue3/vue-trello-drag-and-drop/components/DragHandle/index.vue",
+                    "__file": "/Users/gabrielcaiana/www/Frontend/nuxt3/trello-clone/components/DragHandle/index.vue",
                     "render": [Function],
                   },
                   "u": null,
@@ -909,7 +948,7 @@ VueWrapper {
                 "targetAnchor": null,
                 "transition": null,
                 "type": {
-                  "__file": "/Users/gabrielcaiana/www/Frontend/vue3/vue-trello-drag-and-drop/components/DragHandle/index.vue",
+                  "__file": "/Users/gabrielcaiana/www/Frontend/nuxt3/trello-clone/components/DragHandle/index.vue",
                   "render": [Function],
                 },
               },
@@ -925,7 +964,7 @@ VueWrapper {
                 "dynamicChildren": null,
                 "dynamicProps": null,
                 "el": <span
-                  class="text-white"
+                  class="text-white break-all"
                   datatest-id="task-title"
                 >
                   Test task
@@ -933,7 +972,7 @@ VueWrapper {
                 "key": null,
                 "patchFlag": 1,
                 "props": {
-                  "class": "text-white",
+                  "class": "text-white break-all",
                   "datatest-id": "task-title",
                 },
                 "ref": null,
@@ -954,19 +993,21 @@ VueWrapper {
               "title",
             ],
             "el": <div
-              title="2/10/2023"
+              title="3/1/2023"
             >
               <div
                 class="p-3 mt-4 mb-2 bg-zinc-500 rounded shadow-sm max-w-[280px] flex gap-2 focus:shadow focus:border focus:border-zinc-200 cursor-pointer"
                 tabindex="0"
               >
-                <icon
-                  class="drag-handle cursor-move text-white mt-1"
-                  name="ph:dots-six-vertical"
-                  weight="bold"
-                />
+                <div>
+                  <icon
+                    class="drag-handle cursor-move text-white mt-1"
+                    name="ph:dots-six-vertical"
+                    weight="bold"
+                  />
+                </div>
                 <span
-                  class="text-white"
+                  class="text-white break-all"
                   datatest-id="task-title"
                 >
                   Test task
@@ -976,7 +1017,7 @@ VueWrapper {
             "key": null,
             "patchFlag": 8,
             "props": {
-              "title": "2/10/2023",
+              "title": "3/1/2023",
             },
             "ref": null,
             "scopeId": null,
@@ -994,11 +1035,11 @@ VueWrapper {
           "suspense": null,
           "suspenseId": 0,
           "type": {
-            "__file": "/Users/gabrielcaiana/www/Frontend/vue3/vue-trello-drag-and-drop/components/Task/index.vue",
+            "__file": "/Users/gabrielcaiana/www/Frontend/nuxt3/trello-clone/components/Task/index.vue",
             "__name": "index",
             "components": {
               "DragHandle": {
-                "__file": "/Users/gabrielcaiana/www/Frontend/vue3/vue-trello-drag-and-drop/components/DragHandle/index.vue",
+                "__file": "/Users/gabrielcaiana/www/Frontend/nuxt3/trello-clone/components/DragHandle/index.vue",
                 "render": [Function],
               },
             },
@@ -1013,8 +1054,8 @@ VueWrapper {
             },
             "propsData": {
               "task": {
-                "createdAt": 2023-02-11T02:16:38.724Z,
-                "id": "T69ql3P7knPu0ypIYIgl6",
+                "createdAt": 2023-03-01T03:50:23.388Z,
+                "id": "5I2vzoYP1kaAoagn8Pudh",
                 "title": "Test task",
               },
             },
@@ -1033,19 +1074,21 @@ VueWrapper {
         "dynamicChildren": null,
         "dynamicProps": null,
         "el": <div
-          title="2/10/2023"
+          title="3/1/2023"
         >
           <div
             class="p-3 mt-4 mb-2 bg-zinc-500 rounded shadow-sm max-w-[280px] flex gap-2 focus:shadow focus:border focus:border-zinc-200 cursor-pointer"
             tabindex="0"
           >
-            <icon
-              class="drag-handle cursor-move text-white mt-1"
-              name="ph:dots-six-vertical"
-              weight="bold"
-            />
+            <div>
+              <icon
+                class="drag-handle cursor-move text-white mt-1"
+                name="ph:dots-six-vertical"
+                weight="bold"
+              />
+            </div>
             <span
-              class="text-white"
+              class="text-white break-all"
               datatest-id="task-title"
             >
               Test task
@@ -1057,8 +1100,8 @@ VueWrapper {
         "props": {
           "ref": "VTU_COMPONENT",
           "task": {
-            "createdAt": 2023-02-11T02:16:38.724Z,
-            "id": "T69ql3P7knPu0ypIYIgl6",
+            "createdAt": 2023-03-01T03:50:23.388Z,
+            "id": "5I2vzoYP1kaAoagn8Pudh",
             "title": "Test task",
           },
         },
@@ -1079,11 +1122,11 @@ VueWrapper {
         "targetAnchor": null,
         "transition": null,
         "type": {
-          "__file": "/Users/gabrielcaiana/www/Frontend/vue3/vue-trello-drag-and-drop/components/Task/index.vue",
+          "__file": "/Users/gabrielcaiana/www/Frontend/nuxt3/trello-clone/components/Task/index.vue",
           "__name": "index",
           "components": {
             "DragHandle": {
-              "__file": "/Users/gabrielcaiana/www/Frontend/vue3/vue-trello-drag-and-drop/components/DragHandle/index.vue",
+              "__file": "/Users/gabrielcaiana/www/Frontend/nuxt3/trello-clone/components/DragHandle/index.vue",
               "render": [Function],
             },
           },
@@ -1098,8 +1141,8 @@ VueWrapper {
           },
           "propsData": {
             "task": {
-              "createdAt": 2023-02-11T02:16:38.724Z,
-              "id": "T69ql3P7knPu0ypIYIgl6",
+              "createdAt": 2023-03-01T03:50:23.388Z,
+              "id": "5I2vzoYP1kaAoagn8Pudh",
               "title": "Test task",
             },
           },
@@ -1160,19 +1203,21 @@ VueWrapper {
         "dynamicChildren": null,
         "dynamicProps": null,
         "el": <div
-          title="2/10/2023"
+          title="3/1/2023"
         >
           <div
             class="p-3 mt-4 mb-2 bg-zinc-500 rounded shadow-sm max-w-[280px] flex gap-2 focus:shadow focus:border focus:border-zinc-200 cursor-pointer"
             tabindex="0"
           >
-            <icon
-              class="drag-handle cursor-move text-white mt-1"
-              name="ph:dots-six-vertical"
-              weight="bold"
-            />
+            <div>
+              <icon
+                class="drag-handle cursor-move text-white mt-1"
+                name="ph:dots-six-vertical"
+                weight="bold"
+              />
+            </div>
             <span
-              class="text-white"
+              class="text-white break-all"
               datatest-id="task-title"
             >
               Test task
@@ -1402,19 +1447,21 @@ VueWrapper {
     "VTU_COMPONENT": {},
   },
   "wrapperElement": <div
-    title="2/10/2023"
+    title="3/1/2023"
   >
     <div
       class="p-3 mt-4 mb-2 bg-zinc-500 rounded shadow-sm max-w-[280px] flex gap-2 focus:shadow focus:border focus:border-zinc-200 cursor-pointer"
       tabindex="0"
     >
-      <icon
-        class="drag-handle cursor-move text-white mt-1"
-        name="ph:dots-six-vertical"
-        weight="bold"
-      />
+      <div>
+        <icon
+          class="drag-handle cursor-move text-white mt-1"
+          name="ph:dots-six-vertical"
+          weight="bold"
+        />
+      </div>
       <span
-        class="text-white"
+        class="text-white break-all"
         datatest-id="task-title"
       >
         Test task

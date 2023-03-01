@@ -14,7 +14,7 @@ const handleLogout = () => {
   >
     <span class="text-4xl text-white font-medium">Trello - Nuxt 3</span>
 
-    <div class="flex gap-2 items-center">
+    <div v-if="user" class="flex gap-2 items-center">
       <img
         v-if="user.profileImage"
         :src="user.profileImage"

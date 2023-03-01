@@ -445,7 +445,7 @@ VueWrapper {
           "suspense": null,
           "suspenseId": 0,
           "type": {
-            "__file": "/Users/gabrielcaiana/www/Frontend/vue3/vue-trello-drag-and-drop/components/NewTask/index.vue",
+            "__file": "/Users/gabrielcaiana/www/Frontend/nuxt3/trello-clone/components/NewTask/index.vue",
             "__name": "index",
             "components": {},
             "emits": [
@@ -491,7 +491,7 @@ VueWrapper {
         "targetAnchor": null,
         "transition": null,
         "type": {
-          "__file": "/Users/gabrielcaiana/www/Frontend/vue3/vue-trello-drag-and-drop/components/NewTask/index.vue",
+          "__file": "/Users/gabrielcaiana/www/Frontend/nuxt3/trello-clone/components/NewTask/index.vue",
           "__name": "index",
           "components": {},
           "emits": [
