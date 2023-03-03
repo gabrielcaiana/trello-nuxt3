@@ -28,7 +28,7 @@ onKeyStroke('Backspace', (_e) => {
       <div>
         <DragHandle class="mt-1" />
       </div>
-      <span datatest-id="task-title" class="text-white break-all">{{
+      <span datatest-id="task-title" class="text-white break-words">{{
         task.title
       }}</span>
     </div>
