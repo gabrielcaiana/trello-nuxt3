@@ -11,21 +11,43 @@ datasource db {
 }
 
 model User {
-  id           String         @id @default(auto()) @map("_id") @db.ObjectId
-  email        String         @unique
+  id           String  @id @default(auto()) @map("_id") @db.ObjectId
+  email        String  @unique
   name         String?
   password     String
   profileImage String?
-  createdAt    DateTime       @default(now())
-  updatedAt    DateTime       @updatedAt
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   RefreshToken RefreshToken[]
 }
 
 model RefreshToken {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  token     String   @unique
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  token  String @unique
+  userId String @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id])
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  userId    String   @db.ObjectId
-  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Board {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  Tasks Task[]
+
+  createdAt  DateTime @default(now())
+  updtatedAt DateTime @updatedAt
+}
+
+model Task {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  title   String
+  boardId String @db.ObjectId
+  board   Board  @relation(fields: [boardId], references: [id])
+
+  createdAt  DateTime @default(now())
+  updtatedAt DateTime @updatedAt
 }
