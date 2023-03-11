@@ -27,9 +27,3 @@ Para construir o projeto para produção, execute o seguinte comando no terminal
 - Vue: biblioteca JavaScript para construção de interfaces de usuário.
 - Typescript: linguagem de programação com tipagem estática que é transpilada para JavaScript.
 - Tailwind: framework de estilo para construção de designs de alta velocidade.
-
-## Features que vão ser implementadas
-
-- [ ] Nível de prioridade das tasks
-- [ ] Detalhes da task ao expandir em um modal
-- [ ] Editar o titulo da task dentro da modal de detalhes
