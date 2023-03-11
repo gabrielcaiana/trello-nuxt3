@@ -6,6 +6,26 @@ import { userTransformer } from '~/server/transformers';
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
+  if (!body) {
+    return sendError(
+      event,
+      createError({
+        statusCode: 400,
+        statusMessage: 'please provide a body',
+      })
+    );
+  }
+
+  if (!body) {
+    return sendError(
+      event,
+      createError({
+        statusCode: 400,
+        statusMessage: 'please provide a body',
+      })
+    );
+  }
+
   if (!body.email || !body.password || !body.repeatPassword) {
     return sendError(
       event,

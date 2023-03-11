@@ -8,6 +8,17 @@ import { User } from '~/types/user';
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
+
+  if (!body) {
+    return sendError(
+      event,
+      createError({
+        statusCode: 400,
+        statusMessage: 'please provide a body',
+      })
+    );
+  }
+
   const { email, password } = body;
 
   if (!email || !password) {

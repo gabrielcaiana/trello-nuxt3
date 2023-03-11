@@ -9,7 +9,9 @@
     "test:unit": "vitest",
     "test:ui": "vitest --ui",
     "coverage": "vitest run --coverage",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prisma:push": "npx prisma db push",
+    "prisma:studio": "npx prisma studio"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.2",

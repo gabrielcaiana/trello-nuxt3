@@ -10,7 +10,15 @@ interface Decoded {
 }
 
 export default defineEventHandler(async (event) => {
-  const endpoints = ['/api/auth/user'];
+  const endpoints = [
+    '/api/auth/user',
+    '/api/board',
+    '/api/board/:id',
+    '/api/column',
+    '/api/column/:id',
+    '/api/task',
+    '/api/task/:id',
+  ];
 
   const isHandled = endpoints.some((endpoint) => {
     const pattern = new UrlPattern(endpoint);
