@@ -1,6 +1,6 @@
 import { prisma } from '~/server/db';
-import { Board, ID } from '~/types/board';
-import { deleteColumnsAndTasksByBoardId } from './column';
+import { Board, Column, ID } from '~/types/board';
+import { deleteColumnsAndTasksByBoardId, getAllColumns } from './column';
 
 export const createBoard = async (title: string, userId: ID) => {
   const board = await prisma.board.create({
@@ -47,6 +47,30 @@ export const updateBoardById = async (id: ID, title: string) => {
   });
 
   return board;
+};
+
+export const orderBoardByItemsId = async (
+  orderItems: string[]
+): Promise<Column[]> => {
+  let columns: Column[] = [];
+
+  try {
+    const data = (await getAllColumns()) as { columns: Column[] };
+    columns = data.columns;
+  } catch (error) {
+    createError({
+      statusCode: 400,
+      message: 'Could not get columns',
+    });
+  }
+
+  columns.sort((columnA, columnB) => {
+    const indexA = orderItems.indexOf(columnA.id);
+    const indexB = orderItems.indexOf(columnB.id);
+    return indexA - indexB;
+  });
+
+  return columns as Column[];
 };
 
 export const deleteBoard = async (id: ID) => {
