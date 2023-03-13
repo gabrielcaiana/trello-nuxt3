@@ -12,7 +12,9 @@ const handleLogout = () => {
     datatest-id="header"
     class="border-b border-1 border-zinc-800 mb-10 pb-6 flex justify-between items-center"
   >
-    <span class="text-4xl text-white font-medium">Trello - Nuxt 3</span>
+    <nuxt-link to="/" class="text-4xl text-white font-medium"
+      >Dev Kanban</nuxt-link
+    >
 
     <div v-if="user" class="flex gap-2 items-center">
       <img

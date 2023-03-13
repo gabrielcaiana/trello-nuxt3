@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'initial-scale=1',
-      title: 'Trello - Nuxt 3',
+      title: 'Dev Kanban',
       meta: [{ name: 'description', content: 'Trello with Nuxt 3' }],
       link: [{ rel: 'icon', href: '/favicon.svg' }],
     },

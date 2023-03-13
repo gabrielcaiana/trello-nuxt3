@@ -1,14 +1,19 @@
-export default (url: string, options: any = {}) => {
-  // get the current state of token
+export default async (url: string, options: any = {}) => {
   const { useStateToken } = useAuth();
   const token = useStateToken();
 
-  // request api with token
-  return $fetch(url, {
+  const { data, pending, refresh, error } = await useFetch(url, {
     ...options,
     headers: {
       ...options.headers,
       authorization: `Bearer ${token.value}`,
     },
   });
+
+  return {
+    data,
+    pending,
+    refresh,
+    error,
+  };
 };
