@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Task, ID } from '~~/types/board';
+import type { Task } from '~~/types/board';
 import { ref } from 'vue';
 import { onKeyStroke } from '@vueuse/core';
 
@@ -7,13 +7,11 @@ const props = defineProps<{
   task: Task;
 }>();
 
-const emit = defineEmits<{
-  (e: 'delete', payload: ID): void;
-}>();
-
 const focused = ref(false);
 onKeyStroke('Backspace', (_e) => {
-  if (focused.value) emit('delete', props.task.id);
+  if (focused.value) {
+    // delete task
+  }
 });
 </script>
 

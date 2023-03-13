@@ -16,16 +16,6 @@ export default defineEventHandler(async (event) => {
 
   const { title, boardId } = body;
 
-  if (!title || typeof title !== 'string' || title.trim().length === 0) {
-    return sendError(
-      event,
-      createError({
-        statusCode: 400,
-        statusMessage: 'Invalid board title',
-      })
-    );
-  }
-
   if (!boardId || typeof boardId !== 'string' || boardId.trim().length === 0) {
     return sendError(
       event,

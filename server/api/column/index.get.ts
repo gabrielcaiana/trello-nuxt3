@@ -7,7 +7,5 @@ export default defineEventHandler(async () => {
     },
   });
 
-  return {
-    data,
-  };
+  return data;
 });

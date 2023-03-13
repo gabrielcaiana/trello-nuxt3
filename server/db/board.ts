@@ -16,7 +16,11 @@ export const createBoard = async (title: string, userId: ID) => {
 export const getAllBoards = async (): Promise<Board[]> => {
   const boards = (await prisma.board.findMany({
     include: {
-      columns: true,
+      columns: {
+        include: {
+          tasks: true,
+        },
+      },
     },
   })) as Board[];
 
@@ -54,15 +58,8 @@ export const orderBoardByItemsId = async (
 ): Promise<Column[]> => {
   let columns: Column[] = [];
 
-  try {
-    const data = (await getAllColumns()) as { columns: Column[] };
-    columns = data.columns;
-  } catch (error) {
-    createError({
-      statusCode: 400,
-      message: 'Could not get columns',
-    });
-  }
+  const data = (await getAllColumns()) as { columns: Column[] };
+  columns = data.columns;
 
   columns.sort((columnA, columnB) => {
     const indexA = orderItems.indexOf(columnA.id);

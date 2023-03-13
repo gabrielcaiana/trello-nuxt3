@@ -36,7 +36,7 @@ export default () => {
   const signUp = (data: User) => {
     return new Promise(async (resolve, reject) => {
       try {
-        await $fetch('/api/auth/register', {
+        await useFetchApi('/api/auth/register', {
           method: 'POST',
           body: data,
         });
@@ -50,12 +50,12 @@ export default () => {
   const signIn = ({ email, password }: UserLogin) => {
     return new Promise(async (resolve, reject) => {
       try {
-        const data = await $fetch('/api/auth/login', {
+        const { data } = await useFetchApi('/api/auth/login', {
           method: 'POST',
           body: { email, password },
         });
 
-        const { access_token, user } = data as ResponseLogin;
+        const { access_token, user } = data.value as ResponseLogin;
         setToken(access_token);
         setUser(user);
 
@@ -71,7 +71,7 @@ export default () => {
       try {
         const data = await $fetch('/api/auth/refresh');
 
-        const { access_token } = data as any;
+        const { access_token } = data as ResponseLogin;
         setToken(access_token);
 
         resolve(true);
@@ -109,12 +109,10 @@ export default () => {
   const getUser = () => {
     return new Promise(async (resolve, reject) => {
       try {
-        const data = await useFetchApi('/api/auth/user');
-
-        const { user } = data as any;
+        const { data } = await useFetchApi('/api/auth/user');
+        const { user } = data.value as any;
 
         setUser(user);
-
         resolve(true);
       } catch (error) {
         reject(error);
