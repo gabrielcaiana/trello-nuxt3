@@ -117,12 +117,12 @@ onBeforeMount(() => {
             >
               <template #item="{ element: task }: { element: Task }">
                 <div>
-                  <Task class="task" :task="task" />
+                  <Task @reload:board="loadBoard" class="task" :task="task" />
                 </div>
               </template>
             </draggable>
             <footer>
-              <NewTask @add="column.tasks.push($event)" />
+              <NewTask @reload:board="loadBoard" :columnId="column.id" />
             </footer>
           </div>
         </template>
