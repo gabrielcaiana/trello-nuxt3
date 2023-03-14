@@ -1,28 +1,34 @@
 <script setup lang="ts">
 import type { Task } from '~~/types/board';
-import { nanoid } from 'nanoid';
 
 import { ref } from 'vue';
 
+const { createTask } = useTask();
+
+const props = defineProps<{
+  columnId: string;
+}>();
+
 const emit = defineEmits<{
-  (e: 'add', payload: Task): void;
+  (e: 'reload:board'): void;
 }>();
 
 const focused = ref(false);
 const title = ref('');
 
-const createTask = (e: Event) => {
+const addTask = async (e: Event) => {
   e.preventDefault();
 
   const taskTitle = title.value.trim();
 
   if (!taskTitle) return;
 
-  emit('add', {
-    id: nanoid(),
-    title: taskTitle,
-    createdAt: new Date(),
-  } as Task);
+  try {
+    await createTask(taskTitle, props.columnId);
+    emit('reload:board');
+  } catch (error) {
+    console.error(error);
+  }
 
   title.value = '';
 };
@@ -32,8 +38,8 @@ const createTask = (e: Event) => {
   <textarea
     v-model="title"
     :placeholder="!focused ? '+ Add A Card' : 'Enter a title for this card'"
-    @keydown.tab="createTask"
-    @keyup.enter="createTask"
+    @keydown.tab="addTask"
+    @keyup.enter="addTask"
     @blur="focused = false"
     @focus="focused = true"
     style="outlined: none !important"

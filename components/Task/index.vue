@@ -3,14 +3,21 @@ import type { Task } from '~~/types/board';
 import { ref } from 'vue';
 import { onKeyStroke } from '@vueuse/core';
 
+const { deleteTask } = useTask();
+
 const props = defineProps<{
   task: Task;
 }>();
 
+const emit = defineEmits<{
+  (e: 'reload:board'): void;
+}>();
+
 const focused = ref(false);
-onKeyStroke('Backspace', (_e) => {
+onKeyStroke('Backspace', async (_e) => {
   if (focused.value) {
-    // delete task
+    await deleteTask(props.task.id);
+    emit('reload:board');
   }
 });
 </script>
