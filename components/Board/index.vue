@@ -6,11 +6,12 @@ const alt = useKeyModifier('Alt');
 const { getBoardById } = useBoard();
 const { createColumn, updateColumnById, deleteColumnById } = useColumn();
 
+const { setBoard, stateBoard } = useStateBoard();
+
 const props = defineProps<{
   boardId: string;
 }>();
 
-let board = reactive<Board>({} as Board);
 const loading = ref(false);
 
 const loadBoard = async () => {
@@ -19,7 +20,7 @@ const loadBoard = async () => {
     const data = (await getBoardById(props.boardId)) as {
       value: { board: Board };
     };
-    board = data.value.board;
+    setBoard(data.value.board);
   } catch (error) {
     console.error(error);
   } finally {
@@ -29,8 +30,14 @@ const loadBoard = async () => {
 
 const addColumn = async () => {
   try {
-    await createColumn('', props.boardId);
-    await loadBoard();
+    const data = (await createColumn('', props.boardId)) as {
+      value: { column: Column };
+    };
+
+    setBoard({
+      ...stateBoard().value,
+      columns: [...stateBoard().value.columns, data.value.column],
+    });
   } catch (error) {
     console.error(error);
   }
@@ -48,13 +55,18 @@ const editColumn = async (id: string, event: HTMLInputElement) => {
   const title = event.value;
 
   try {
-    loading.value = true;
-    await updateColumnById(id, title!);
-    await loadBoard();
+    const data = (await updateColumnById(id, title)) as { value: Column };
+
+    setBoard({
+      ...stateBoard().value,
+      columns: stateBoard().value.columns.map((column) =>
+        column.id === data.value.id ? data.value : column
+      ),
+    });
+
+    nextTick(() => event.blur());
   } catch (error) {
     console.error(error);
-  } finally {
-    loading.value = false;
   }
 };
 
@@ -62,13 +74,14 @@ const deleteColumn = async (id: string, event: HTMLInputElement) => {
   if (event.value !== '') return;
 
   try {
-    loading.value = true;
     await deleteColumnById(id);
-    await loadBoard();
+
+    setBoard({
+      ...stateBoard().value,
+      columns: stateBoard().value.columns.filter((column) => column.id !== id),
+    });
   } catch (error) {
     console.error(error);
-  } finally {
-    loading.value = false;
   }
 };
 
@@ -85,7 +98,7 @@ onBeforeMount(() => {
       class="flex items-start gap-4 overflow-x-auto h-full scrollbar scrollbar-thumb-transparent scrollbar-track-transparent"
     >
       <draggable
-        v-model="board.columns"
+        v-model="stateBoard().value.columns"
         group="columns"
         item-key="id"
         class="flex gap-4 items-start"
@@ -93,7 +106,7 @@ onBeforeMount(() => {
         handle=".drag-handle"
       >
         <template #item="{ element: column }: { element: Column }">
-          <div class="column bg-zinc-800 p-5 rounded min-w-[280px]">
+          <div class="column bg-white/5 p-5 rounded min-w-[280px]">
             <header class="text-white font-bold flex items-center gap-1">
               <DragHandle />
               <input
@@ -117,7 +130,7 @@ onBeforeMount(() => {
             >
               <template #item="{ element: task }: { element: Task }">
                 <div>
-                  <Task @reload:board="loadBoard" class="task" :task="task" />
+                  <Task class="task" :task="task" />
                 </div>
               </template>
             </draggable>
@@ -129,7 +142,7 @@ onBeforeMount(() => {
       </draggable>
       <button
         @click="addColumn"
-        class="focus:bg-zinc-700 hover:bg-zinc-600 focus:shadow resize-none rounded bg-zinc-700 transition-colors text-zinc-500 px-2 text-left cursor-pointer whitespace-nowrap"
+        class="focus:bg-zinc-700 hover:bg-zinc-600 focus:shadow resize-none rounded bg-[#00000040] transition-colors text-zinc-500 px-2 text-left cursor-pointer whitespace-nowrap"
       >
         + Add Another Column
       </button>

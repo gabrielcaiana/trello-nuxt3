@@ -27,7 +27,7 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    await getColumnById(id!);
+    await getColumnById(id);
   } catch (error) {
     return sendError(
       event,
@@ -38,8 +38,10 @@ export default defineEventHandler(async (event) => {
     );
   }
 
+  let column;
+
   try {
-    await updateColumn(id, title);
+    column = await updateColumn(id, title);
   } catch (error) {
     sendError(
       event,
@@ -50,8 +52,5 @@ export default defineEventHandler(async (event) => {
     );
   }
 
-  return {
-    statusCode: 200,
-    message: 'Column updated successfully',
-  };
+  return column;
 });

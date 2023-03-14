@@ -9,7 +9,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-zinc-900">
+  <div class="min-h-screen bg-[#152330]">
     <UIToast />
 
     <div class="container mx-auto py-10">
