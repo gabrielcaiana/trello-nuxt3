@@ -33,7 +33,11 @@ export const getBoardById = async (id: ID): Promise<Board | null> => {
       id,
     },
     include: {
-      columns: true,
+      columns: {
+        include: {
+          tasks: true,
+        },
+      },
     },
   })) as Board | null;
 
