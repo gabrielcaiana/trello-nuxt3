@@ -11,9 +11,9 @@ const handleClick = () => {
 };
 const btnClasses = computed(() => {
   if (props.color === 'secondary') {
-    return 'border border-green-600 hover:bg-green-600 text-green-600 hover:text-white';
+    return 'border border-[#4589F7] hover:bg-#548AEF text-[#4589F7] hover:text-white';
   }
-  return 'bg-green-600 hover:bg-green-600 text-white';
+  return 'bg-[#4589F7] text-white filter hover:brightness-110';
 });
 </script>
 

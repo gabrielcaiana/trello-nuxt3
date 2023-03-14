@@ -52,7 +52,5 @@ export default defineEventHandler(async (event) => {
 
   const task = await createTask(event.context.auth.user.id, title, columnId);
 
-  return {
-    task,
-  };
+  return task;
 });

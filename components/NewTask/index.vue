@@ -1,16 +1,13 @@
 <script setup lang="ts">
-import type { Task } from '~~/types/board';
-
 import { ref } from 'vue';
+import { Task } from '~/types/board';
 
 const { createTask } = useTask();
 
+const { setBoard, stateBoard } = useStateBoard();
+
 const props = defineProps<{
   columnId: string;
-}>();
-
-const emit = defineEmits<{
-  (e: 'reload:board'): void;
 }>();
 
 const focused = ref(false);
@@ -24,8 +21,20 @@ const addTask = async (e: Event) => {
   if (!taskTitle) return;
 
   try {
-    await createTask(taskTitle, props.columnId);
-    emit('reload:board');
+    const task = (await createTask(taskTitle, props.columnId)) as {
+      value: Task;
+    };
+
+    setBoard({
+      ...stateBoard().value,
+      columns: stateBoard().value.columns.map((column) => ({
+        ...column,
+        tasks:
+          column.id === props.columnId
+            ? [...column.tasks, task.value]
+            : column.tasks,
+      })),
+    });
   } catch (error) {
     console.error(error);
   }
@@ -44,7 +53,7 @@ const addTask = async (e: Event) => {
     @focus="focused = true"
     style="outlined: none !important"
     :class="[
-      'focus:bg-zinc-700 hover:bg-zinc-600 focus:shadow resize-none rounded bg-zinc-700 transition-colors text-zinc-500 px-2 w-full text-left cursor-pointer mt-2',
+      'focus:bg-zinc-700 hover:bg-zinc-600 focus:shadow resize-none rounded bg-[#00000040] transition-colors text-zinc-500 px-2 w-full text-left cursor-pointer mt-2',
       {
         'h-7': !focused,
         'h-20': focused,

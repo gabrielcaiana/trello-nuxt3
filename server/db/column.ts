@@ -42,15 +42,20 @@ export const getColumnById = async (id: string) => {
   };
 };
 
-export const updateColumn = (id: string, title: string) => {
-  return prisma.column.update({
+export const updateColumn = async (id: string, title: string) => {
+  const column = await prisma.column.update({
     where: {
       id,
     },
     data: {
       title,
     },
+    include: {
+      tasks: true,
+    },
   });
+
+  return column;
 };
 
 export const deleteColumn = async (id: string) => {

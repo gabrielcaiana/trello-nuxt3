@@ -5,19 +5,24 @@ import { onKeyStroke } from '@vueuse/core';
 
 const { deleteTask } = useTask();
 
+const { setBoard, stateBoard } = useStateBoard();
+
 const props = defineProps<{
   task: Task;
-}>();
-
-const emit = defineEmits<{
-  (e: 'reload:board'): void;
 }>();
 
 const focused = ref(false);
 onKeyStroke('Backspace', async (_e) => {
   if (focused.value) {
     await deleteTask(props.task.id);
-    emit('reload:board');
+
+    setBoard({
+      ...stateBoard().value,
+      columns: stateBoard().value.columns.map((column) => ({
+        ...column,
+        tasks: column.tasks.filter((task) => task.id !== props.task.id),
+      })),
+    });
   }
 });
 </script>
@@ -28,7 +33,7 @@ onKeyStroke('Backspace', async (_e) => {
       @focus="focused = true"
       @blur="focused = false"
       tabindex="0"
-      class="p-3 mt-4 mb-2 bg-zinc-500 rounded shadow-sm max-w-[280px] flex gap-2 focus:shadow focus:border focus:border-zinc-200 cursor-pointer"
+      class="p-3 mt-4 mb-2 bg-[#152330] rounded shadow-sm max-w-[280px] flex gap-2 focus:shadow focus:border focus:border-zinc-200 cursor-pointer"
     >
       <div>
         <DragHandle class="mt-1" />
