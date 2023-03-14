@@ -53,7 +53,7 @@ const addTask = async (e: Event) => {
     @focus="focused = true"
     style="outlined: none !important"
     :class="[
-      'focus:bg-zinc-700 hover:bg-zinc-600 focus:shadow resize-none rounded bg-[#00000040] transition-colors text-zinc-500 px-2 w-full text-left cursor-pointer mt-2',
+      'focus:bg-zinc-700 hover:bg-zinc-600 focus:shadow resize-none rounded bg-zinc-700 transition-colors text-zinc-500 px-2 w-full text-left cursor-pointer mt-2',
       {
         'h-7': !focused,
         'h-20': focused,

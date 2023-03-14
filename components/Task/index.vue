@@ -33,7 +33,7 @@ onKeyStroke('Backspace', async (_e) => {
       @focus="focused = true"
       @blur="focused = false"
       tabindex="0"
-      class="p-3 mt-4 mb-2 bg-[#152330] rounded shadow-sm max-w-[280px] flex gap-2 focus:shadow focus:border focus:border-zinc-200 cursor-pointer"
+      class="p-3 mt-4 mb-2 bg-zinc-500 rounded shadow-sm max-w-[280px] flex gap-2 focus:shadow focus:border focus:border-zinc-200 cursor-pointer"
     >
       <div>
         <DragHandle class="mt-1" />
