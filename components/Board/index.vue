@@ -142,7 +142,7 @@ onBeforeMount(() => {
       </draggable>
       <button
         @click="addColumn"
-        class="focus:bg-zinc-700 hover:bg-zinc-600 focus:shadow resize-none rounded bg-[#00000040] transition-colors text-zinc-500 px-2 text-left cursor-pointer whitespace-nowrap"
+        class="focus:bg-zinc-700 hover:bg-zinc-600 focus:shadow resize-none rounded bg-zinc-900 transition-colors text-zinc-500 px-2 text-left cursor-pointer whitespace-nowrap"
       >
         + Add Another Column
       </button>
