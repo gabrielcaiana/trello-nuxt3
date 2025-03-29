@@ -13,8 +13,11 @@ export const createBoard = async (title: string, userId: ID) => {
   return board;
 };
 
-export const getAllBoards = async (): Promise<Board[]> => {
+export const getAllBoards = async (userId: ID): Promise<Board[]> => {
   const boards = (await prisma.board.findMany({
+    where: {
+      userId,
+    },
     include: {
       columns: {
         include: {

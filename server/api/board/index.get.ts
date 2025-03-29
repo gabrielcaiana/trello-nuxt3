@@ -4,8 +4,20 @@ import { Board } from '~/types/board';
 export default defineEventHandler(async (event) => {
   let boards: Board[];
 
+  const userId = event.context?.auth?.user?.id;
+
+  if (!userId) {
+    return sendError(
+      event,
+      createError({
+        statusCode: 401,
+        message: 'Unauthorized',
+      })
+    );
+  }
+
   try {
-    boards = await getAllBoards();
+    boards = await getAllBoards(userId);
   } catch (error) {
     return sendError(
       event,
