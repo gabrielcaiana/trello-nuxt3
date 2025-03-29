@@ -1,4 +1,4 @@
-export default async (url: string, options: any = {}) => {
+export async function useFetchApi (url: string, options: any = {}) {
   const { useStateToken } = useAuth();
   const token = useStateToken();
 

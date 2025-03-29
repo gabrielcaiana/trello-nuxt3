@@ -1,4 +1,4 @@
-export default () => {
+export function useBoard () {
   const getBoards = () => {
     return new Promise(async (resolve, reject) => {
       try {

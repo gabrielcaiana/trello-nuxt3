@@ -1,4 +1,4 @@
-export default () => {
+export function useColumn () {
   const getColumns = () => {
     return new Promise(async (resolve, reject) => {
       try {

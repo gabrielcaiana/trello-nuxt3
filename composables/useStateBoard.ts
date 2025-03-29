@@ -1,6 +1,6 @@
 import type { Board } from '~/types/board';
 
-export default () => {
+export function useStateBoard () {
   const stateBoard = () => useState<Board>('board');
 
   const setBoard = (newBoard: Board) => {

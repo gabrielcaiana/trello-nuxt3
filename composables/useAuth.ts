@@ -13,7 +13,7 @@ interface JwtDecode {
   userId: ID;
 }
 
-export default () => {
+export function useAuth() {
   const useStateToken = () => useState<Token>('auth_token');
   const useStateUser = () => useState<User>('auth_user');
   const useStateLoading = () => useState<boolean>('auth_loading', () => true);
