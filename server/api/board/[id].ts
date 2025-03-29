@@ -7,8 +7,9 @@ export default defineEventHandler(async (event) => {
   let board: Board | null;
 
   try {
-    board = await getBoardById(id);
+    board = await getBoardById(id!);
   } catch (error) {
+    console.error(error);
     return sendError(
       event,
       createError({

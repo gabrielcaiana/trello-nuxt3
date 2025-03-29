@@ -1,24 +1,20 @@
 export function useBoard () {
-  const getBoards = () => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const { data } = await useFetchApi(`/api/board`);
-        resolve(data);
-      } catch (error) {
-        reject(error);
-      }
-    });
+  const getBoards = async () => {
+    try {
+      const { data } = await useFetchApi(`/api/board`);
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const getBoardById = (id: string | string[]) => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const { data } = await useFetchApi(`/api/board/${id}`);
-        resolve(data);
-      } catch (error) {
-        reject(error);
-      }
-    });
+  const getBoardById = async (id: string | string[]) => {
+    try {
+      const { data } = await useFetchApi(`/api/board/${id}`);
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return {

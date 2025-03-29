@@ -3,7 +3,7 @@
 const matchAnyEmojiWithSpaceAfter
   = /(\p{Emoji_Presentation}|\p{Extended_Pictographic})?\s?/
 const matchOptionalTicketNumberWithSpaceAfter = /(?:\[(T-\d+)\]\s)?/ // "[T-4605] ", "[T-1]"
-const subjectThatDontStartWithBracket = /([^\[].+)/ // "Add tests" but don't allow "[ Add tests"
+const subjectThatDontStartWithBracket = /([^[].+)/ // "Add tests" but don't allow "[ Add tests"
 
 module.exports = {
   parserPreset: {

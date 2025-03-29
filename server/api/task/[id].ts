@@ -8,6 +8,7 @@ export default defineEventHandler(async (event) => {
   try {
     task = await getTaskById(id!);
   } catch (error) {
+    console.error(error);
     return sendError(
       event,
       createError({

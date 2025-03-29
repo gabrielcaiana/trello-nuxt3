@@ -12,14 +12,18 @@
     "coverage": "vitest run --coverage",
     "prepare": "husky install",
     "prisma:push": "npx prisma db push",
-    "prisma:studio": "npx prisma studio"
+    "prisma:studio": "npx prisma studio",
+    "lint": "eslint .",
+    "lintfix": "eslint --fix ."
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-conventional": "^19.8.0",
+    "@nuxt/eslint": "1.2.0",
     "@types/bcrypt": "^5.0.0",
     "@types/jsonwebtoken": "^9.0.1",
     "@vite-pwa/nuxt": "^0.10.8",
+    "eslint": "^9.0.0",
     "husky": "^9.1.7",
     "jsdom": "^26.0.0",
     "nuxt": "^3.16.1",

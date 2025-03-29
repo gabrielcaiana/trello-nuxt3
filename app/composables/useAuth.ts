@@ -18,14 +18,20 @@ export function useAuth() {
   const useStateUser = () => useState<User>('auth_user');
   const useStateLoading = () => useState<boolean>('auth_loading', () => true);
 
-  const setToken = (newToken: Token) => {
+  const setToken = (newToken: Token | null) => {
     const authToken = useStateToken();
-    authToken.value = newToken;
+
+    if (newToken) {
+      authToken.value = newToken;
+    }
   };
 
-  const setUser = (newUser: User) => {
+  const setUser = (newUser: User | null) => {
     const authUser = useStateUser();
-    authUser.value = newUser;
+
+    if (newUser) {  
+      authUser.value = newUser;
+    }
   };
 
   const setIsLoading = (value: boolean) => {
@@ -33,53 +39,46 @@ export function useAuth() {
     authLoading.value = value;
   };
 
-  const signUp = (data: User) => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        await useFetchApi('/api/auth/register', {
-          method: 'POST',
-          body: data,
-        });
-        resolve(true);
-      } catch (error) {
-        reject(error);
-      }
-    });
+  const signUp = async (data: User) => {
+    try {
+      const response = await useFetchApi('/api/auth/register', {
+        method: 'POST',
+        body: data,
+      });
+      return response;
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const signIn = ({ email, password }: UserLogin) => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const { data } = await useFetchApi('/api/auth/login', {
-          method: 'POST',
-          body: { email, password },
-        });
+  const signIn = async ({ email, password }: UserLogin) => {
+    try {
+      const { data } = await useFetchApi('/api/auth/login', {
+        method: 'POST',
+        body: { email, password },
+      });
 
-        const { access_token, user } = data.value as ResponseLogin;
-        setToken(access_token);
-        setUser(user);
+      const { access_token, user } = data.value as ResponseLogin;
+      setToken(access_token);
+      setUser(user);
 
-        resolve(true);
-      } catch (error) {
-        reject(error);
-      }
-    });
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const refreshToken = () => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const data: ResponseLogin = await $fetch('/api/auth/refresh');
-
-        const { access_token } = data;
-        setToken(access_token);
-
-        resolve(true);
-      } catch (error) {
-        reject(error);
-      }
-    });
+  const refreshToken = async () => {
+    try {
+      const data: ResponseLogin = await $fetch('/api/auth/refresh');
+      const { access_token } = data;
+      setToken(access_token);
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
   };
+
   const reRefreshAccessToken = async () => {
     const authToken = useStateToken();
 
@@ -95,9 +94,8 @@ export function useAuth() {
       try {
         await refreshToken();
         break;
-      } catch (error: any) {
-        console.error(`Error updating token: ${error.message}`);
-
+      } catch (error) {
+        console.error(`Error updating token: ${error}`);
         await new Promise((resolve) => setTimeout(resolve, 30000));
       }
 
@@ -106,54 +104,46 @@ export function useAuth() {
     }
   };
 
-  const getUser = () => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const { data } = await useFetchApi('/api/auth/user');
-        const { user } = data.value as any;
-
-        setUser(user);
-        resolve(true);
-      } catch (error) {
-        reject(error);
-      }
-    });
+  const getUser = async () => {
+    try {
+      const { data } = await useFetchApi('/api/auth/user');
+      const { user } = data.value as ResponseLogin;
+      setUser(user);
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const initAuth = () => {
-    return new Promise(async (resolve, reject) => {
-      setIsLoading(true);
-      try {
-        await refreshToken();
-        await getUser();
-
-        reRefreshAccessToken();
-        resolve(true);
-      } catch (error) {
-        reject(error);
-      } finally {
-        setIsLoading(false);
-      }
-    });
+  const initAuth = async () => {
+    setIsLoading(true);
+    try {
+      await refreshToken();
+      await getUser();
+      reRefreshAccessToken();
+      return true;
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const logout = () => {
-    return new Promise(async (resolve, reject) => {
-      setIsLoading(true);
-      try {
-        await useFetchApi('/api/auth/logout/', {
-          method: 'POST',
-        });
+  const logout = async () => {
+    setIsLoading(true);
+    try {
+      const response = await useFetchApi('/api/auth/logout/', {
+        method: 'POST',
+      });
 
-        setToken(null as any);
-        setUser(null as any);
-        resolve(true);
-      } catch (error) {
-        reject(error);
-      } finally {
-        setIsLoading(false);
-      }
-    });
+      setToken(null);
+      setUser(null);
+      return response;
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return {

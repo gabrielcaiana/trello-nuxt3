@@ -19,6 +19,7 @@ export default defineEventHandler(async (event) => {
   try {
     boards = await getAllBoards(userId);
   } catch (error) {
+    console.error(error);
     return sendError(
       event,
       createError({

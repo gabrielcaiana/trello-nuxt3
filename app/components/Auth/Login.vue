@@ -43,12 +43,12 @@ const handleRegisterPage = () => {
       <div class="flex flex-col gap-1 mb-2">
         <label class="text-sm text-gray-300" for="email">Email</label>
         <VField
+          id="email"
+          v-model="data.email"
           class="bg-white/10 text-white p-2 rounded-md"
           type="email"
-          id="email"
           name="email"
           rules="required|email"
-          v-model="data.email"
         />
         <VErrorMessage name="email" class="text-red-500" />
       </div>
@@ -56,10 +56,10 @@ const handleRegisterPage = () => {
       <div class="flex flex-col gap-1">
         <label class="text-sm text-gray-300" for="password">Senha</label>
         <VField
+          id="password"
           v-model="data.password"
           class="bg-white/10 text-white p-2 rounded-md"
           type="password"
-          id="password"
           name="password"
           rules="required"
         />
@@ -67,8 +67,8 @@ const handleRegisterPage = () => {
       </div>
 
       <div
-        class="flex items-center justify-center w-full mt-4"
         v-if="data.loading"
+        class="flex items-center justify-center w-full mt-4"
       >
         <UILoading />
       </div>

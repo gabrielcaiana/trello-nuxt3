@@ -22,6 +22,6 @@ useHead({
 
 <template>
   <div>
-    <Board :boardId="board.id" />
+    <Board :board-id="board.id" />
   </div>
 </template>

@@ -30,10 +30,10 @@ onKeyStroke('Backspace', async (_e) => {
 <template>
   <div :title="new Date(task.createdAt).toLocaleDateString()">
     <div
-      @focus="focused = true"
-      @blur="focused = false"
       tabindex="0"
       class="p-3 mt-4 mb-2 bg-zinc-500 rounded shadow-sm max-w-[280px] flex gap-2 focus:shadow focus:border focus:border-zinc-200 cursor-pointer"
+      @focus="focused = true"
+      @blur="focused = false"
     >
       <div>
         <DragHandle class="mt-1" />

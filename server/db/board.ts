@@ -82,6 +82,7 @@ export const deleteBoard = async (id: ID) => {
   try {
     await deleteColumnsAndTasksByBoardId(id);
   } catch (error) {
+    console.error(error);
     return {
       statusCode: 400,
       message: 'Could not delete columns',

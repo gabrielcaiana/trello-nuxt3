@@ -1,14 +1,14 @@
 import { defineRule } from 'vee-validate';
 import { required, email, min, url } from '@vee-validate/rules';
 
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin(() => {
   defineRule('required', required);
   defineRule('email', email);
   defineRule('min', min);
   defineRule('url', url);
 
   // define custom rules
-  defineRule('minMax', (value: string, [min, max]: any) => {
+  defineRule('minMax', (value: string, [min, max]: [number, number]) => {
     // The field is empty so it should pass
     if (!value || !value.length) {
       return true;
@@ -22,7 +22,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     return true;
   });
 
-  defineRule('confirmed', (value, [target]: any, ctx) => {
+  defineRule('confirmed', (value, [target]: [string], ctx) => {
     if (value === ctx.form[target]) {
       return true;
     }

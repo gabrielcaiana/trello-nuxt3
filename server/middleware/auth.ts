@@ -50,6 +50,7 @@ export default defineEventHandler(async (event) => {
       user: userTransformer(user!),
     };
   } catch (error) {
+    console.error(error);
     return;
   }
 });

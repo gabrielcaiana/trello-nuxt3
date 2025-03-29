@@ -4,7 +4,7 @@ const currentPage = ref('login');
 const AuthLogin = resolveComponent('AuthLogin');
 const AuthRegister = resolveComponent('AuthRegister');
 
-$bus.$on('auth:form', (data: any) => {
+$bus.$on('auth:form', (data: { page: string }) => {
   currentPage.value = data.page;
 });
 </script>

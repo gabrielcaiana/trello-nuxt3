@@ -28,8 +28,9 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    await getBoardById(id);
+    await getBoardById(id!);
   } catch (error) {
+    console.error(error);
     return sendError(
       event,
       createError({
@@ -40,8 +41,9 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    await updateBoardById(id, title);
+    await updateBoardById(id!, title);
   } catch (error) {
+    console.error(error);
     return sendError(
       event,
       createError({

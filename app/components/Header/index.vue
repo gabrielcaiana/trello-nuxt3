@@ -22,15 +22,15 @@ const handleLogout = () => {
         :src="user.profileImage"
         :alt="user.name!"
         class="rounded-full w-6 h-6"
-      />
+      >
 
       <div class="text-white flex gap-3 items-center">
         <span class="text-gray-300 font-medium"> {{ user.name }}</span>
         <Icon
-          @click="handleLogout"
           name="ph:sign-out"
           size="16"
           class="cursor-pointer hover:text-green-500 transition-colors mt-1"
+          @click="handleLogout"
         />
       </div>
     </div>

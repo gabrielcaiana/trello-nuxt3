@@ -19,11 +19,11 @@ const btnClasses = computed(() => {
 
 <template>
   <button
-    @click="handleClick"
     :class="[
       'transition-colors py-3 font-medium rounded-md  w-full',
       btnClasses,
     ]"
+    @click="handleClick"
   >
     <slot />
   </button>

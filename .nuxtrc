@@ -4,3 +4,4 @@ modules[]=@nuxtjs/tailwindcss
 modules[]=@vueuse/nuxt
 modules[]=nuxt-icon
 modules[]=@vite-pwa/nuxt
+modules[]=@nuxt/eslint

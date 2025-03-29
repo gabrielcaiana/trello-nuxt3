@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import type { User } from '~~/shared/types/user';
 import type { Token } from '~~/shared/types/token';
+import type { H3Event } from 'h3';
 
 const config = useRuntimeConfig();
 
@@ -23,7 +24,7 @@ export const generateTokens = (user: User) => {
   };
 };
 
-export const sendRefreshToken = (event: any, token: Token) => {
+export const sendRefreshToken = (event: H3Event, token: Token) => {
   setCookie(event, 'refresh_token', token, {
     httpOnly: true,
     sameSite: true,
@@ -34,6 +35,7 @@ export const decodeRefreshToken = (token: Token) => {
   try {
     return jwt.verify(token, config.jwtRefreshSecret);
   } catch (error) {
+    console.error(error);
     return null;
   }
 };
@@ -42,6 +44,7 @@ export const decodeAccessToken = (token: Token) => {
   try {
     return jwt.verify(token, config.jwtAccessSecret);
   } catch (error) {
+    console.error(error);
     return null;
   }
 };

@@ -4,8 +4,9 @@ export default defineEventHandler(async (event) => {
   const { id } = event.context.params as Record<string, string>;
 
   try {
-    await getBoardById(id);
+    await getBoardById(id!);
   } catch (error) {
+    console.error(error);
     return sendError(
       event,
       createError({
@@ -16,8 +17,9 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    await deleteBoard(id);
+    await deleteBoard(id!);
   } catch (error) {
+    console.error(error);
     return sendError(
       event,
       createError({

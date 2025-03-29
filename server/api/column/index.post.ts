@@ -39,6 +39,7 @@ export default defineEventHandler(async (event) => {
   try {
     await getBoardById(boardId);
   } catch (error) {
+    console.error(error);
     return sendError(
       event,
       createError({

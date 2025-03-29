@@ -46,10 +46,6 @@ const addTask = async (e: Event) => {
   <textarea
     v-model="title"
     :placeholder="!focused ? '+ Add A Card' : 'Enter a title for this card'"
-    @keydown.tab="addTask"
-    @keyup.enter="addTask"
-    @blur="focused = false"
-    @focus="focused = true"
     style="outlined: none !important"
     :class="[
       'focus:bg-zinc-700 hover:bg-zinc-600 focus:shadow resize-none rounded bg-zinc-700 transition-colors text-zinc-500 px-2 w-full text-left cursor-pointer mt-2',
@@ -58,5 +54,9 @@ const addTask = async (e: Event) => {
         'h-20': focused,
       },
     ]"
+    @keydown.tab="addTask"
+    @keyup.enter="addTask"
+    @blur="focused = false"
+    @focus="focused = true"
   />
 </template>

@@ -6,6 +6,7 @@ export default defineEventHandler(async (event) => {
   try {
     await deleteColumn(id!);
   } catch (error) {
+    console.error(error);
     return sendError(
       event,
       createError({

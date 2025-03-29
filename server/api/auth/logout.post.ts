@@ -6,6 +6,7 @@ export default defineEventHandler(async (event) => {
     const cookie = getCookie(event, 'refresh_token') as Token;
     await deleteRefreshToken(cookie);
   } catch (error) {
+    console.error(error);
     sendError(
       event,
       createError({

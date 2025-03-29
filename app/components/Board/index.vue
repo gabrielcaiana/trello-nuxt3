@@ -111,15 +111,15 @@ onBeforeMount(() => {
               <DragHandle />
               <input
                 class="title-input bg-transparent focus:shadow focus:border focus:border-zinc-200 rounded w-4/5"
+                type="text"
+                :value="column.title"
                 @keyup.enter="
                   editColumn(column.id, $event.target as HTMLInputElement)
                 "
                 @keydown.backspace="
                   deleteColumn(column.id, $event.target as HTMLInputElement)
                 "
-                type="text"
-                :value="column.title"
-              />
+              >
             </header>
             <draggable
               v-model="column.tasks"
@@ -135,14 +135,14 @@ onBeforeMount(() => {
               </template>
             </draggable>
             <footer>
-              <NewTask @reload:board="loadBoard" :columnId="column.id" />
+              <NewTask :column-id="column.id" @reload:board="loadBoard" />
             </footer>
           </div>
         </template>
       </draggable>
       <button
-        @click="addColumn"
         class="focus:bg-zinc-700 hover:bg-zinc-600 focus:shadow resize-none rounded bg-zinc-900 transition-colors text-zinc-500 px-2 text-left cursor-pointer whitespace-nowrap"
+        @click="addColumn"
       >
         + Add Another Column
       </button>

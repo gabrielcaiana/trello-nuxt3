@@ -62,6 +62,7 @@ export const deleteColumn = async (id: string) => {
   try {
     await deleteTasksByColumnId(id);
   } catch (error) {
+    console.error(error);
     return {
       statusCode: 400,
       message: 'Failed to delete tasks',
@@ -86,6 +87,7 @@ export const deleteColumnsAndTasksByBoardId = async (boardId: string) => {
     try {
       await deleteTasksByColumnId(column.id);
     } catch (error) {
+      console.error(error);
       return {
         statusCode: 400,
         message: 'Failed to delete tasks',

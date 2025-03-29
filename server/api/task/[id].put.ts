@@ -42,8 +42,9 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    await getTaskById(id);
+    await getTaskById(id!);
   } catch (error) {
+    console.error(error);
     return sendError(
       event,
       createError({
@@ -56,6 +57,7 @@ export default defineEventHandler(async (event) => {
   try {
     await getColumnById(columnId!);
   } catch (error) {
+    console.error(error);
     return sendError(
       event,
       createError({
@@ -66,8 +68,9 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    await updateTaskById(id, title, columnId!);
+    await updateTaskById(id!, title, columnId!);
   } catch (error) {
+    console.error(error);
     sendError(
       event,
       createError({

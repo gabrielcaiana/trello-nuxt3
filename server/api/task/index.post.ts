@@ -31,6 +31,7 @@ export default defineEventHandler(async (event) => {
   try {
     column = await getColumnById(columnId);
   } catch (error) {
+    console.error(error);
     return sendError(
       event,
       createError({

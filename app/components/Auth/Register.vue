@@ -41,12 +41,12 @@ const handleLoginPage = () => {
       <div class="flex flex-col gap-1 mb-2">
         <label class="text-sm text-gray-300" for="name">Nome</label>
         <VField
+          id="name"
+          v-model="data.name"
           class="bg-white/10 text-white p-2 rounded-md"
           type="text"
-          id="name"
           name="name"
           rules="required|minMax:5,20"
-          v-model="data.name"
         />
         <VErrorMessage name="name" class="text-red-500" />
       </div>
@@ -54,12 +54,12 @@ const handleLoginPage = () => {
       <div class="flex flex-col gap-1 mb-2">
         <label class="text-sm text-gray-300" for="email">Email</label>
         <VField
+          id="email"
+          v-model="data.email"
           class="bg-white/10 text-white p-2 rounded-md"
           type="email"
-          id="email"
           name="email"
           rules="required|email"
-          v-model="data.email"
         />
         <VErrorMessage name="email" class="text-red-500" />
       </div>
@@ -69,12 +69,12 @@ const handleLoginPage = () => {
           >Imagem Url</label
         >
         <VField
+          id="imageProfileUrl"
+          v-model="data.profileImage"
           class="bg-white/10 text-white p-2 rounded-md"
           type="text"
-          id="imageProfileUrl"
           name="imageProfileUrl"
           rules="required|url"
-          v-model="data.profileImage"
         />
         <VErrorMessage name="imageProfileUrl" class="text-red-500" />
       </div>
@@ -82,12 +82,12 @@ const handleLoginPage = () => {
       <div class="flex flex-col gap-1">
         <label class="text-sm text-gray-300" for="password">Senha</label>
         <VField
+          id="password"
+          v-model="data.password"
           class="bg-white/10 text-white p-2 rounded-md"
           type="password"
-          id="password"
           name="password"
           rules="required|minMax:5,16"
-          v-model="data.password"
         />
         <VErrorMessage name="password" class="text-red-500" />
       </div>
@@ -97,12 +97,12 @@ const handleLoginPage = () => {
           >Repetir senha</label
         >
         <VField
+          id="repeatPassword"
+          v-model="data.repeatPassword"
           class="bg-white/10 text-white p-2 rounded-md"
           type="password"
-          id="repeatPassword"
           name="repeatPassword"
           rules="required|minMax:5,16|confirmed:password"
-          v-model="data.repeatPassword"
         />
         <VErrorMessage name="repeatPassword" class="text-red-500" />
       </div>

@@ -29,7 +29,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const token = decodeRefreshToken(refresh_token);
-  const { userId } = token as any;
+  const { userId } = token as { userId: string };
 
   try {
     const user = await getUserById(userId);
@@ -40,6 +40,7 @@ export default defineEventHandler(async (event) => {
       access_token: accessToken,
     };
   } catch (error) {
+    console.error(error);
     return sendError(
       event,
       createError({

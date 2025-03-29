@@ -1,59 +1,52 @@
 export function useColumn () {
-  const getColumns = () => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const { data } = await useFetchApi('/api/column');
-        resolve(data);
-      } catch (error) {
-        reject(error);
-      }
-    });
+  const getColumns = async () => {
+    try {
+      const { data } = await useFetchApi('/api/column');
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const createColumn = (title: string, boardId: string) => {
-    return new Promise(async (resolve, reject) => {
-      try {
-        const { data } = await useFetchApi('/api/column', {
-          method: 'POST',
-          body: {
-            title,
-            boardId,
-          },
-        });
-        resolve(data);
-      } catch (error) {
-        reject(error);
-      }
-    });
+  const createColumn = async (title: string, boardId: string) => {
+    try {
+      const { data } = await useFetchApi('/api/column', {
+        method: 'POST',
+        body: {
+          title,
+          boardId,
+        },
+      });
+      return data;
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const updateColumnById = (id: string, title: string) => {
-    return new Promise(async (resolve, reject) => {
-      try {
+  const updateColumnById = async (id: string, title: string) => {
+    try {
         const { data } = await useFetchApi(`/api/column/${id}`, {
           method: 'PUT',
           body: {
             title,
           },
         });
-        resolve(data);
+        return data;
       } catch (error) {
-        reject(error);
+        console.error(error);
       }
-    });
   };
 
-  const deleteColumnById = (id: string) => {
-    return new Promise(async (resolve, reject) => {
-      try {
+  const deleteColumnById = async (id: string) => {
+     try {
         const { data } = await useFetchApi(`/api/column/${id}`, {
           method: 'DELETE',
         });
-        resolve(data);
+        
+        return data;
       } catch (error) {
-        reject(error);
+        console.error(error);
       }
-    });
   };
 
   return {

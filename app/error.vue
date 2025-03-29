@@ -15,7 +15,7 @@ const message = computed(() => String(props.error?.message || ''));
 const is404 = computed(
   () => props.error?.statusCode === '404' || message.value?.includes('404')
 );
-const isDev = process.dev;
+const isDev = import.meta.dev;
 const handleError = () => clearError({ redirect: '/' });
 </script>
 <template>
@@ -28,7 +28,7 @@ const handleError = () => clearError({ redirect: '/' });
         Parece que você seguiu um link quebrado ou inseriu um URL que não
         existem neste site.
       </div>
-      <pre class="my-4" v-if="isDev">{{ error }}</pre>
+      <pre v-if="isDev" class="my-4">{{ error }}</pre>
       <button
         class="bg-neutral-400 text-white p-3 rounded-md hover:bg-neutral-600"
         @click="handleError"
