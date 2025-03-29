@@ -20,7 +20,10 @@ const handleLogin = async () => {
     router.push('/');
   } catch (error) {
     console.error(error);
-    $bus.$emit('toast', { message: error, type: 'error' });
+    $bus.$emit('toast', { 
+      message: error instanceof Error ? error.message : 'Erro ao fazer login', 
+      type: 'error' 
+    });
   } finally {
     data.loading = false;
   }

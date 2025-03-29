@@ -1,5 +1,5 @@
 import { prisma } from '~/server/db';
-import { Board, Column, ID } from '~/types/board';
+import type { Board, Column, ID } from '~/types/board';
 import { deleteColumnsAndTasksByBoardId, getAllColumns } from './column';
 
 export const createBoard = async (title: string, userId: ID) => {

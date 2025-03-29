@@ -4,7 +4,7 @@ import { generateTokens, sendRefreshToken } from '~/server/utils/jwt';
 import { userTransformer } from '~/server/transformers';
 import { createRefreshToken } from '~/server/db/refreshTokens';
 import { sendError } from 'h3';
-import { User } from '~/types/user';
+import type { User } from '~/types/user';
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);

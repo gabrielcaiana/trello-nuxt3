@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { Task } from '~/types/board';
+import type { Task } from '~/types/board';
 
 const { createTask } = useTask();
 

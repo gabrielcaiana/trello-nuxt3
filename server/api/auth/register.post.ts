@@ -1,4 +1,4 @@
-import { User } from '~/types/user';
+import  type { User } from '~/types/user';
 import { createUser } from '~/server/db/users';
 import { sendError } from 'h3';
 import { userTransformer } from '~/server/transformers';

@@ -1,5 +1,5 @@
-import { Token } from '~/types/token';
-import { ID } from '~/types/user';
+import type { Token } from '~/types/token';
+import type { ID } from '~/types/user';
 import { prisma } from '.';
 
 interface RefreshToken {

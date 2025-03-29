@@ -1,5 +1,5 @@
-import { ID, User, UserLogin } from '~/types/user';
-import { Token } from '~/types/token';
+import type { ID, User, UserLogin } from '~/types/user';
+import type { Token } from '~/types/token';
 import jwt_decode from 'jwt-decode';
 
 interface ResponseLogin {

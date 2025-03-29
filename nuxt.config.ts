@@ -10,9 +10,11 @@ export default defineNuxtConfig({
     },
     pageTransition: { name: 'page', mode: 'out-in' },
   },
+
   typescript: {
     strict: true,
   },
+
   // @ts-ignore
   modules: [
     '@nuxtjs/tailwindcss',
@@ -20,6 +22,7 @@ export default defineNuxtConfig({
     'nuxt-icon',
     '@vite-pwa/nuxt',
   ],
+
   pwa: {
     manifest: {
       name: 'Trello Clone',
@@ -50,4 +53,6 @@ export default defineNuxtConfig({
     jwtAccessSecret: process.env.JWT_ACCESS_TOKEN_SECRET,
     jwtRefreshSecret: process.env.JWT_REFRESH_TOKEN_SECRET,
   },
+
+  compatibilityDate: '2025-03-29',
 });

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { User } from '~/types/user';
+import type { User } from '~/types/user';
 
 useHead({
   title: 'Login',

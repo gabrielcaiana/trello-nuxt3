@@ -1,5 +1,5 @@
 import { getAllBoards } from '~~/server/db/board';
-import { Board } from '~/types/board';
+import type { Board } from '~/types/board';
 
 export default defineEventHandler(async (event) => {
   let boards: Board[];
