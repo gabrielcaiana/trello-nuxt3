@@ -23,14 +23,6 @@ export default defineNuxtConfig({
     strict: true,
   },
 
-  // @ts-ignore
-  modules: [
-    '@nuxtjs/tailwindcss',
-    '@vueuse/nuxt',
-    'nuxt-icon',
-    '@vite-pwa/nuxt',
-  ],
-
   pwa: {
     manifest: {
       name: 'Trello Clone',
