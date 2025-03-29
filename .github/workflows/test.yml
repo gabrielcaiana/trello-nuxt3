@@ -18,29 +18,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
-
-      - name: Enable Corepack (necessário para pnpm)
+      - name: Enable Corepack
         run: corepack enable
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: latest
-          run_install: false # Evita que instale automaticamente antes de garantir o PATH
+          version: 8
+          run_install: false
 
-      - name: Add pnpm to PATH
-        run: echo "$(pnpm root -g)/bin" >> $GITHUB_PATH
-
-      - name: Check pnpm version
-        run: pnpm --version
-
-      - name: Clean pnpm store (opcional, mas ajuda a evitar cache corrompido)
-        run: pnpm store prune
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
