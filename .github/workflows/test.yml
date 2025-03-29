@@ -31,12 +31,19 @@ jobs:
         uses: pnpm/action-setup@v2
         with:
           version: latest
+          run_install: false # Evita que instale automaticamente antes de garantir o PATH
+
+      - name: Add pnpm to PATH
+        run: echo "$(pnpm root -g)/bin" >> $GITHUB_PATH
 
       - name: Check pnpm version
         run: pnpm --version
 
+      - name: Clean pnpm store (opcional, mas ajuda a evitar cache corrompido)
+        run: pnpm store prune
+
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Run tests
         run: pnpm run test:ci
