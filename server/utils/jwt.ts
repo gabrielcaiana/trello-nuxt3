@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
-import type { User } from '~/types/user';
-import type { Token } from '~/types/token';
+import type { User } from '~~/shared/types/user';
+import type { Token } from '~~/shared/types/token';
 
 const config = useRuntimeConfig();
 

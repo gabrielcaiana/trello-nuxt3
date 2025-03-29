@@ -1,4 +1,4 @@
-import { prisma } from '~/server/db';
+import { prisma } from '~~/server/db';
 import { deleteTasksByColumnId } from './task';
 
 export const createColumn = (

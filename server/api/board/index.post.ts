@@ -1,4 +1,4 @@
-import { createBoard } from '~/server/db/board';
+import { createBoard } from '~~/server/db/board';
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);

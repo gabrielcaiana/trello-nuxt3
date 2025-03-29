@@ -1,4 +1,4 @@
-import { updateColumn, getColumnById } from '~/server/db/column';
+import { updateColumn, getColumnById } from '~~/server/db/column';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as Record<string, string>;
@@ -27,7 +27,7 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    await getColumnById(id);
+    await getColumnById(id!);
   } catch (error) {
     return sendError(
       event,
@@ -41,7 +41,7 @@ export default defineEventHandler(async (event) => {
   let column;
 
   try {
-    column = await updateColumn(id, title);
+    column = await updateColumn(id!, title);
   } catch (error) {
     sendError(
       event,

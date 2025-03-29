@@ -1,5 +1,5 @@
-import { getColumnById } from '~/server/db/column';
-import { getTaskById, updateTaskById } from '~/server/db/task';
+import { getColumnById } from '~~/server/db/column';
+import { getTaskById, updateTaskById } from '~~/server/db/task';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as Record<string, string>;

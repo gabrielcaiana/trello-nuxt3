@@ -1,4 +1,4 @@
-import { deleteBoard, getBoardById } from '~/server/db/board';
+import { deleteBoard, getBoardById } from '~~/server/db/board';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as Record<string, string>;

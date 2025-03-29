@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Board } from '~/types/board';
+import type { Board } from '~~/shared/types/board';
 
 const route = useRoute();
 const { id } = route.params;

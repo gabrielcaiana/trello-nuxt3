@@ -1,10 +1,10 @@
-import { deleteTaskById } from '~/server/db/task';
+import { deleteTaskById } from '~~/server/db/task';
 
 export default defineEventHandler(async (event) => {
   const { id } = (await event.context.params) as Record<string, string>;
 
   try {
-    await deleteTaskById(id);
+    await deleteTaskById(id!);
   } catch (error) {
     return sendError(
       event,

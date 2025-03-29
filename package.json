@@ -42,5 +42,6 @@
     "url-pattern": "^1.0.3",
     "vee-validate": "^4.7.4",
     "vuedraggable": "^4.1.0"
-  }
+  },
+  "packageManager": "pnpm@8.10.0+sha512.9c2cb83f2b6cf6a25d8c58300bf99197c7ef3be84cf3e766f29054b40b83b42f8aaba6fcc314a9ecf27c00f7ce80a757bb4c608800e7adbe2d29dc5c7056f5be"
 }

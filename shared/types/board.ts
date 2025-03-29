@@ -1,4 +1,4 @@
-export type ID = string;
+import type { ID } from './user';
 
 export interface Board {
   id: ID;

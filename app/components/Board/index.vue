@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Board, Column, Task } from '~/types/board';
+import type { Board, Column, Task } from '~~/shared/types/board';
 import draggable from 'vuedraggable';
 const alt = useKeyModifier('Alt');
 

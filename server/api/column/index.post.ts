@@ -1,5 +1,5 @@
-import { createColumn } from '~/server/db/column';
-import { getBoardById } from '~/server/db/board';
+import { createColumn } from '~~/server/db/column';
+import { getBoardById } from '~~/server/db/board';
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);

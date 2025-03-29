@@ -1,4 +1,4 @@
-import { getBoardById, updateBoardById } from '~/server/db/board';
+import { getBoardById, updateBoardById } from '~~/server/db/board';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as Record<string, string>;

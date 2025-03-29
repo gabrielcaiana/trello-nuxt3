@@ -1,4 +1,4 @@
-import { getColumnById } from '~/server/db/column';
+import { getColumnById } from '~~/server/db/column';
 
 export default defineEventHandler(async (event) => {
   const { id } = (await event.context.params) as Record<string, string>;
@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
   let column;
 
   try {
-    column = await getColumnById(id);
+    column = await getColumnById(id!);
   } catch (error) {
     return sendError(
       event,

@@ -1,5 +1,5 @@
-import type { ID, User, UserLogin } from '~/types/user';
-import type { Token } from '~/types/token';
+import type { ID, User, UserLogin } from '~~/shared/types/user';
+import type { Token } from '~~/shared/types/token';
 import jwt_decode from 'jwt-decode';
 
 interface ResponseLogin {
@@ -69,9 +69,9 @@ export function useAuth() {
   const refreshToken = () => {
     return new Promise(async (resolve, reject) => {
       try {
-        const data = await $fetch('/api/auth/refresh');
+        const data: ResponseLogin = await $fetch('/api/auth/refresh');
 
-        const { access_token } = data as ResponseLogin;
+        const { access_token } = data;
         setToken(access_token);
 
         resolve(true);

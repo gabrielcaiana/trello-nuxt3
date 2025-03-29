@@ -1,4 +1,4 @@
-import { getTaskById } from '~/server/db/task';
+import { getTaskById } from '~~/server/db/task';
 
 export default defineEventHandler(async (event) => {
   const { id } = event.context.params as Record<string, string>;
@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
   let task;
 
   try {
-    task = await getTaskById(id);
+    task = await getTaskById(id!);
   } catch (error) {
     return sendError(
       event,

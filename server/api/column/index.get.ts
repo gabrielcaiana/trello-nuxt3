@@ -1,4 +1,4 @@
-import { prisma } from '~/server/db';
+import { prisma } from '~~/server/db';
 
 export default defineEventHandler(async () => {
   const data = await prisma.column.findMany({

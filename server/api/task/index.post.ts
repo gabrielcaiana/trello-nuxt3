@@ -1,5 +1,5 @@
 import { createTask } from '~~/server/db/task';
-import { getColumnById } from '~/server/db/column';
+import { getColumnById } from '~~/server/db/column';
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);

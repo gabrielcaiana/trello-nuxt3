@@ -11,6 +11,14 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
   },
 
+  future: {
+    compatibilityVersion: 4,
+  },
+
+  dir: {
+    app: 'app'
+  },
+
   typescript: {
     strict: true,
   },
