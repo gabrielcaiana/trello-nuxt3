@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Task } from '~~/shared/types/board';
+import type { Task } from '#shared/types/board';
 import { ref } from 'vue';
 import { onKeyStroke } from '@vueuse/core';
 

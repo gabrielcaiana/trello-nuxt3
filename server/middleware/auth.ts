@@ -1,5 +1,5 @@
 import UrlPattern from 'url-pattern';
-import type { Token } from '~~/shared/types/token';
+import type { Token } from '#shared/types/token';
 import { decodeAccessToken } from '../utils/jwt';
 import { sendError } from 'h3';
 import { getUserById } from '../db/users';

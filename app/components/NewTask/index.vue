@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Task } from '~~/shared/types/board';
+import type { Task } from '#shared/types/board';
 
 const { createTask } = useTask();
 

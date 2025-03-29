@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
-import type { User } from '~~/shared/types/user';
-import type { Token } from '~~/shared/types/token';
+import type { User } from '#shared/types/user';
+import type { Token } from '#shared/types/token';
 import type { H3Event } from 'h3';
 
 const config = useRuntimeConfig();

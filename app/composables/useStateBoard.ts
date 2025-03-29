@@ -1,4 +1,4 @@
-import type { Board } from '~~/shared/types/board';
+import type { Board } from '#shared/types/board';
 
 export function useStateBoard () {
   const stateBoard = () => useState<Board>('board');

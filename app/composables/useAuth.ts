@@ -1,5 +1,5 @@
-import type { ID, User, UserLogin } from '~~/shared/types/user';
-import type { Token } from '~~/shared/types/token';
+import type { ID, User, UserLogin } from '#shared/types/user';
+import type { Token } from '#shared/types/token';
 import jwt_decode from 'jwt-decode';
 
 interface ResponseLogin {

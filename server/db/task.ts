@@ -1,6 +1,6 @@
 import { prisma } from '~~/server/db';
-import type { Task } from '~~/shared/types/board';
-import type { ID } from '~~/shared/types/user';
+import type { Task } from '#shared/types/board';
+import type { ID } from '#shared/types/user';
 
 export const getAllTasks = async (): Promise<Task[] | null> => {
   const tasks = await prisma.task.findMany();

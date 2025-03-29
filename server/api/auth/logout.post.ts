@@ -1,5 +1,5 @@
 import { deleteRefreshToken } from '~~/server/db/refreshTokens';
-import type { Token } from '~~/shared/types/token';
+import type { Token } from '#shared/types/token';
 
 export default defineEventHandler(async (event) => {
   try {
