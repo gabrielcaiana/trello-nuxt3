@@ -8,9 +8,8 @@ useHead({
 const { getBoards } = useBoard();
 
 let boards = reactive<Board[]>([]);
-
 try {
-  boards = (await getBoards()) as Board[];
+  boards = await getBoards() as unknown as Board[];
 } catch (error) {
   console.error(error);
 }

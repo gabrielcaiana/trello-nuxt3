@@ -2,7 +2,7 @@ export async function useFetchApi (url: string, options: any = {}) {
   const { useStateToken } = useAuth();
   const token = useStateToken();
 
-  const { data, pending, refresh, error } = await useFetch(url, {
+  const { data, status, refresh, error, execute } = await useFetch(url, {
     ...options,
     headers: {
       ...options.headers,
@@ -12,8 +12,9 @@ export async function useFetchApi (url: string, options: any = {}) {
 
   return {
     data,
-    pending,
+    status,
     refresh,
     error,
+    execute,
   };
 };
