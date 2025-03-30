@@ -14,24 +14,18 @@ interface JwtDecode {
 }
 
 export function useAuth() {
-  const useStateToken = () => useState<Token>('auth_token');
-  const useStateUser = () => useState<User>('auth_user');
+  const useStateToken = () => useState<Token | null>('auth_token');
+  const useStateUser = () => useState<User | null>('auth_user');
   const useStateLoading = () => useState<boolean>('auth_loading', () => true);
 
   const setToken = (newToken: Token | null) => {
     const authToken = useStateToken();
-
-    if (newToken) {
-      authToken.value = newToken;
-    }
+    authToken.value = newToken;
   };
 
   const setUser = (newUser: User | null) => {
     const authUser = useStateUser();
-
-    if (newUser) {  
-      authUser.value = newUser;
-    }
+    authUser.value = newUser;
   };
 
   const setIsLoading = (value: boolean) => {
@@ -40,32 +34,22 @@ export function useAuth() {
   };
 
   const signUp = async (data: User) => {
-    try {
-      const response = await useFetchApi('/api/auth/register', {
-        method: 'POST',
-        body: data,
-      });
-      return response;
-    } catch (error) {
-      console.error(error);
-    }
+    const response = await useFetchApi('/api/auth/register', {
+      method: 'POST',
+      body: data,
+    });
+    return response;
   };
 
   const signIn = async ({ email, password }: UserLogin) => {
-    try {
-      const { data } = await useFetchApi('/api/auth/login', {
-        method: 'POST',
-        body: { email, password },
-      });
+    const { data } = await useFetchApi('/api/auth/login', {
+      method: 'POST',
+      body: { email, password },
+    });
 
-      const { access_token, user } = data.value as ResponseLogin;
-      setToken(access_token);
-      setUser(user);
-
-      return data;
-    } catch (error) {
-      console.error(error);
-    }
+    const { access_token, user } = data.value as ResponseLogin;
+    setToken(access_token);
+    setUser(user);
   };
 
   const refreshToken = async () => {
@@ -99,7 +83,7 @@ export function useAuth() {
         await new Promise((resolve) => setTimeout(resolve, 30000));
       }
 
-      const newJwt: JwtDecode = jwt_decode(useStateToken().value);
+      const newJwt: JwtDecode = jwt_decode(useStateToken().value as Token);
       remainingTime = newJwt.exp * 1000 - Date.now() - 60000;
     }
   };
